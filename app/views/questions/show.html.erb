@@ -1,0 +1,13 @@
+<h1>Pergunta</h1>
+
+<p>
+  <%= @question.description %>
+</p>
+
+<%= link_to "Editar", edit_question_path(@question) %>
+
+<%= link_to "Excluir",
+            question_path(@question),
+            data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir esta pergunta?" } %>
+
+<%= link_to "Voltar", questions_path %>

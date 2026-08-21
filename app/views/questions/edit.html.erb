@@ -1,0 +1,14 @@
+<h1>Editar pergunta</h1>
+
+<%= form_with model: @question do |form| %>
+  <div>
+    <%= form.label :description, "Pergunta" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit "Atualizar pergunta" %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar", question_path(@question) %>
