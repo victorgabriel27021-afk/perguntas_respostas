@@ -1,0 +1,12 @@
+<h1>Nova pergunta</h1>
+
+<%= form_with model: @question do |form| %>
+  <div>
+    <%= form.label :description, "Pergunta" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit "Criar pergunta" %>
+  </div>
+<% end %>
