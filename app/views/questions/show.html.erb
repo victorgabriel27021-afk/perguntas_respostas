@@ -4,6 +4,14 @@
   <%= @question.description %>
 </p>
 
+<p>
+  Categoria: <%= @question.category.name %>
+</p>
+
+<p>
+  Perguntado por: <%= @question.user.email %>
+</p>
+
 <%= link_to "Editar", edit_question_path(@question) %>
 
 <%= link_to "Excluir",
