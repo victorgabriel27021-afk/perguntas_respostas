@@ -7,6 +7,11 @@
   </div>
 
   <div>
+  <%= form.label :category_id, "Categoria" %>
+  <%= form.collection_select :category_id, @categories, :id, :name, prompt: "Selecione uma categoria" %>
+</div>
+
+  <div>
     <%= form.submit "Criar pergunta" %>
   </div>
 <% end %>

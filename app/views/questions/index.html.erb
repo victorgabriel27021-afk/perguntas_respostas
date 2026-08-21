@@ -4,6 +4,9 @@
 
 <ul>
   <% @questions.each do |question| %>
-    <li><%= link_to question.description, question_path(question) %></li>
+    <li>
+  <%= link_to question.description, question_path(question) %>
+  — <%= question.user.email %>
+</li>
   <% end %>
 </ul>
