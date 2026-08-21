@@ -11,3 +11,25 @@
             data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir esta pergunta?" } %>
 
 <%= link_to "Voltar", questions_path %>
+
+<h2>Responder pergunta</h2>
+
+<%= form_with model: [@question, Answer.new] do |form| %>
+  <div>
+    <%= form.label :description, "Resposta" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.submit "Responder" %>
+  </div>
+
+  <h2>Respostas</h2>
+
+<% @question.answers.each do |answer| %>
+  <div>
+    <p><%= answer.description %></p>
+    <small>Respondido por: <%= answer.user.email %></small>
+  </div>
+<% end %>
+<% end %>
