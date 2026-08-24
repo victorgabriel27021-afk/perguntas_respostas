@@ -1,0 +1,67 @@
+<div class="admin-dashboard-page">
+
+  <div class="admin-dashboard-header">
+    <h1>Painel Administrativo</h1>
+    <p>Gerencie e acompanhe o Askly.</p>
+  </div>
+
+  <div class="admin-menu">
+
+<%= link_to "Painel",
+admin_dashboard_path,
+class: "admin-menu-link active" %>
+
+<%= link_to "Usuários",
+            admin_users_path,
+            class: "admin-menu-link" %>
+
+<%= link_to "Perguntas",
+questions_path,
+class: "admin-menu-link" %>
+
+<%= link_to "Categorias",
+"#",
+class: "admin-menu-link" %>
+
+<%= link_to "Assinaturas",
+"#",
+class: "admin-menu-link" %>
+
+</div>
+
+
+  <div class="admin-dashboard-grid">
+
+<div class="admin-dashboard-card">
+  <h2>👥</h2>
+
+  <div class="admin-dashboard-number">
+    <%= @users_count %>
+  </div>
+
+  <p>Usuários cadastrados</p>
+</div>
+
+<div class="admin-dashboard-card">
+  <h2>❓</h2>
+
+  <div class="admin-dashboard-number">
+    <%= Question.count %>
+  </div>
+
+  <p>Perguntas cadastradas</p>
+</div>
+
+<div class="admin-dashboard-card">
+  <h2>💬</h2>
+
+  <div class="admin-dashboard-number">
+    <%= Answer.count %>
+  </div>
+
+  <p>Respostas cadastradas</p>
+</div>
+
+  </div>
+
+</div>

@@ -1,0 +1,50 @@
+<div class="admin-dashboard-page">
+
+  <div class="admin-dashboard-header">
+    <h1>Usuários</h1>
+    <p>Usuários cadastrados no Askly.</p>
+  </div>
+
+  <div class="admin-users-card">
+
+
+<div class="admin-users-header">
+  <strong>Usuário</strong>
+  <strong>E-mail</strong>
+  <strong>Tipo</strong>
+</div>
+
+<% @users.each do |user| %>
+
+  <div class="admin-user-row">
+
+    <div>
+      <strong>
+        <%= user.first_name.presence || "Sem nome" %>
+        <%= user.last_name %>
+      </strong>
+    </div>
+
+    <div>
+      <%= user.email %>
+    </div>
+
+    <div>
+      <% if user.admin? %>
+        <span class="admin-badge">
+          Administrador
+        </span>
+      <% else %>
+        <span class="user-badge">
+          Usuário
+        </span>
+      <% end %>
+    </div>
+
+  </div>
+
+<% end %>
+
+  </div>
+
+</div>
