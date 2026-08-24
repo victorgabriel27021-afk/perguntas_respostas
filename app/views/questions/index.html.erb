@@ -1,19 +1,39 @@
-<h1>Perguntas</h1>
+<div class="questions-page">
 
-<%= link_to "Nova pergunta", new_question_path %>
+  <div class="questions-header">
+    <h1>Perguntas</h1>
 
-<ul>
-  <% @questions.each do |question| %>
- <li>
-  <%= link_to question.description, question_path(question) %>
+```
+<%= link_to "＋ Nova pergunta", new_question_path, class: "new-question-button" %>
+```
 
-  <br>
+  </div>
 
-  <small>
-    Categoria: <%= question.category&.name || "Sem categoria" %>
-    |
-    Perguntado por: <%= question.user.email %>
-  </small>
-</li>
-  <% end %>
-</ul>
+  <ul class="questions-list">
+    <% @questions.each do |question| %>
+      <li class="question-card">
+
+```
+    <%= link_to question.description,
+                question_path(question),
+                class: "question-title" %>
+
+    <div class="question-info">
+      <span class="question-category">
+        <%= question.category&.name || "Sem categoria" %>
+      </span>
+
+      Perguntado por: <%= question.user.email %>
+    </div>
+
+    <%= link_to "Ver pergunta →",
+                question_path(question),
+                class: "view-question" %>
+
+  </li>
+<% end %>
+```
+
+  </ul>
+
+</div>

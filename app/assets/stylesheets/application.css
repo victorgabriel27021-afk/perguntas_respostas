@@ -1,15 +1,91 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+.questions-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.questions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.questions-header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.new-question-button {
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.new-question-button:hover {
+  background: #1d4ed8;
+}
+
+.questions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.question-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.question-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #111827;
+  text-decoration: none;
+}
+
+.question-title:hover {
+  color: #2563eb;
+}
+
+.question-info {
+  margin-top: 14px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.question-category {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.view-question {
+  display: inline-block;
+  margin-top: 18px;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.view-question:hover {
+  text-decoration: underline;
+}
