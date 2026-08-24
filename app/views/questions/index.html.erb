@@ -4,10 +4,16 @@
 
 <ul>
   <% @questions.each do |question| %>
-    <li>
+ <li>
   <%= link_to question.description, question_path(question) %>
-  — <%= question.user.email %>
-  — <%= question.category.name %>
+
+  <br>
+
+  <small>
+    Categoria: <%= question.category&.name || "Sem categoria" %>
+    |
+    Perguntado por: <%= question.user.email %>
+  </small>
 </li>
   <% end %>
 </ul>
