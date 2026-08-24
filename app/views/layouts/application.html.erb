@@ -44,6 +44,12 @@
   <%= current_user.first_name.presence || current_user.email %>
 </span>
 
+<% if current_user.admin? %>
+  <%= link_to "Painel Admin",
+              admin_dashboard_path,
+              class: "navbar-button" %>
+<% end %>
+
 <%= link_to "Sair",
             destroy_user_session_path,
             data: { turbo_method: :delete },
