@@ -1,29 +1,40 @@
 <div class="questions-page">
 
   <div class="questions-header">
-    <h1>Perguntas</h1>
+    <div>
+      <h1>Perguntas</h1>
+      <p>Encontre perguntas e compartilhe seu conhecimento.</p>
+    </div>
 
-```
-<%= link_to "＋ Nova pergunta", new_question_path, class: "new-question-button" %>
-```
+
+<%= link_to "Nova pergunta",
+            new_question_path,
+            class: "new-question-button" %>
+
 
   </div>
 
   <ul class="questions-list">
-    <% @questions.each do |question| %>
-      <li class="question-card">
 
-```
+
+<% @questions.each do |question| %>
+
+  <li class="question-card">
+
     <%= link_to question.description,
                 question_path(question),
                 class: "question-title" %>
 
     <div class="question-info">
+
       <span class="question-category">
-        <%= question.category&.name || "Sem categoria" %>
+        <%= question.category.name %>
       </span>
 
-      Perguntado por: <%= question.user.email %>
+      <span>
+        Perguntado por <%= question.user.email %>
+      </span>
+
     </div>
 
     <%= link_to "Ver pergunta →",
@@ -31,8 +42,8 @@
                 class: "view-question" %>
 
   </li>
+
 <% end %>
-```
 
   </ul>
 

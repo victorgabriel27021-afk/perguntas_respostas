@@ -1,43 +1,97 @@
-<h1>Pergunta</h1>
+<div class="question-page">
 
-<p>
+  <div class="question-detail-card">
+
+```
+<div class="question-detail-header">
+  <span class="question-label">Pergunta</span>
+
+  <span class="question-category">
+    <%= @question.category&.name || "Sem categoria" %>
+  </span>
+</div>
+
+<h1>
   <%= @question.description %>
+</h1>
+
+<p class="question-author">
+  Perguntado por: <strong><%= @question.user.email %></strong>
 </p>
 
-<p>
-  Categoria: <%= @question.category.name %>
-</p>
+<div class="question-actions">
+  <%= link_to "Editar",
+              edit_question_path(@question),
+              class: "action-button" %>
 
-<p>
-  Perguntado por: <%= @question.user.email %>
-</p>
+  <%= link_to "Excluir",
+              question_path(@question),
+              data: {
+                turbo_method: :delete,
+                turbo_confirm: "Tem certeza que deseja excluir esta pergunta?"
+              },
+              class: "action-button delete-button" %>
 
-<%= link_to "Editar", edit_question_path(@question) %>
+  <%= link_to "Voltar",
+              questions_path,
+              class: "action-button" %>
+</div>
+```
 
-<%= link_to "Excluir",
-            question_path(@question),
-            data: { turbo_method: :delete, turbo_confirm: "Tem certeza que deseja excluir esta pergunta?" } %>
+  </div>
 
-<%= link_to "Voltar", questions_path %>
+  <div class="answers-section">
 
+```
+<h2>Respostas</h2>
+
+<% if @question.answers.any? %>
+
+  <% @question.answers.each do |answer| %>
+    <div class="answer-card">
+
+      <p>
+        <%= answer.description %>
+      </p>
+
+      <small>
+        Respondido por: <strong><%= answer.user.email %></strong>
+      </small>
+
+    </div>
+  <% end %>
+
+<% else %>
+
+  <p class="no-answers">
+    Ainda não há respostas para esta pergunta.
+  </p>
+
+<% end %>
+```
+
+  </div>
+
+  <div class="answer-form-card">
+
+```
 <h2>Responder pergunta</h2>
 
 <%= form_with model: [@question, Answer.new] do |form| %>
-  <div>
-    <%= form.label :description, "Resposta" %>
-    <%= form.text_area :description %>
+
+  <div class="form-group">
+    <%= form.label :description, "Sua resposta" %>
+
+    <%= form.text_area :description,
+                       placeholder: "Escreva sua resposta...",
+                       rows: 5 %>
   </div>
 
-  <div>
-    <%= form.submit "Responder" %>
-  </div>
+  <%= form.submit "Responder", class: "submit-answer-button" %>
 
-  <h2>Respostas</h2>
-
-<% @question.answers.each do |answer| %>
-  <div>
-    <p><%= answer.description %></p>
-    <small>Respondido por: <%= answer.user.email %></small>
-  </div>
 <% end %>
-<% end %>
+```
+
+  </div>
+
+</div>

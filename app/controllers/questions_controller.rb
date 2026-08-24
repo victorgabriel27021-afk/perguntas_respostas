@@ -5,6 +5,10 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def my_questions
+  @questions = current_user.questions
+end
+
   def new
   @question = current_user.questions.build
   @categories = Category.all

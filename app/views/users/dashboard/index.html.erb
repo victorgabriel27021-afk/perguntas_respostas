@@ -1,0 +1,53 @@
+<div class="dashboard-page">
+
+<div class="dashboard-header"> <h1>Olá, <%= current_user.first_name.presence || current_user.email %>!</h1> <p>Bem-vindo ao seu painel do Askly.</p> </div>
+
+<div class="dashboard-grid">
+
+  <div class="dashboard-card">
+    <h2>❓</h2>
+
+
+<div class="dashboard-number">
+  <%= current_user.questions.count %>
+</div>
+
+<p>Perguntas feitas</p>
+
+<%= link_to "Ver minhas perguntas",
+            my_questions_path,
+            class: "dashboard-button" %>
+
+
+  </div>
+
+  <div class="dashboard-card">
+    <h2>💬</h2>
+
+
+<div class="dashboard-number">
+  <%= current_user.answers.count %>
+</div>
+
+<p>Respostas dadas</p>
+
+
+  </div>
+
+    <div class="dashboard-card">
+    <h2>💳</h2>
+
+    <div class="dashboard-number">
+      —
+    </div>
+
+    <p>Minha assinatura</p>
+
+    <span class="dashboard-status">
+      Em breve
+    </span>
+  </div>
+
+</div>
+
+</div>

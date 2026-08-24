@@ -1,0 +1,31 @@
+class Users::ProfileController < ApplicationController
+  before_action :authenticate_user!
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if current_user.update(profile_params)
+      redirect_to users_profile_path, notice: "Perfil atualizado com sucesso!"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def profile_params
+    params.require(:user).permit(
+      :first_name,
+      :last_name,
+      :phone,
+      :birth_date,
+      :city,
+      :state,
+      :avatar
+    )
+  end
+end
