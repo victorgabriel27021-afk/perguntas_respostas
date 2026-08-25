@@ -37,6 +37,23 @@
   <p>Respostas cadastradas</p>
 </div>
 
+<div class="admin-dashboard-card">
+
+  <h2>📂</h2>
+
+  <div class="admin-dashboard-number">
+    <%= Category.count %>
+  </div>
+
+  <p>
+    <%= link_to "Categorias",
+                admin_categories_path,
+                class: "admin-dashboard-link" %>
+  </p>
+
+</div>
+
+
   </div>
 
 </div>
