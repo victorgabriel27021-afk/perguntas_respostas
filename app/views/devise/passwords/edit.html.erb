@@ -1,0 +1,57 @@
+<div class="auth-page">
+
+  <div class="auth-card">
+
+<div class="auth-header">
+  <h1>Nova senha</h1>
+  <p>Digite sua nova senha abaixo.</p>
+</div>
+
+<%= form_for(resource,
+             as: resource_name,
+             url: password_path(resource_name),
+             html: { method: :put }) do |f| %>
+
+  <%= f.hidden_field :reset_password_token %>
+
+  <div class="form-group">
+    <%= f.label :password, "Nova senha" %>
+
+    <%= f.password_field :password,
+        autofocus: true,
+        autocomplete: "new-password",
+        placeholder: "Digite sua nova senha" %>
+
+    <% if @minimum_password_length %>
+      <small>
+        Mínimo de <%= @minimum_password_length %> caracteres.
+      </small>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, "Confirmar nova senha" %>
+
+    <%= f.password_field :password_confirmation,
+        autocomplete: "new-password",
+        placeholder: "Digite novamente sua nova senha" %>
+  </div>
+
+  <div class="auth-submit">
+    <%= f.submit "Alterar minha senha",
+        class: "submit-answer-button" %>
+  </div>
+
+<% end %>
+
+<div class="auth-links">
+
+  <%= link_to "Voltar para o login",
+              new_session_path(resource_name) %>
+
+</div>
+
+
+  </div>
+
+</div>

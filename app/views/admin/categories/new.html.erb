@@ -1,0 +1,36 @@
+<div class="admin-dashboard-page">
+
+  <div class="admin-dashboard-header">
+    <h1> Nova categoria</h1>
+    <p>Crie uma nova categoria para organizar as perguntas do Askly.</p>
+  </div>
+
+  <div class="admin-users-card">
+
+<%= form_with model: @category,
+              url: admin_categories_path,
+              method: :post do |form| %>
+
+  <div class="form-group">
+    <%= form.label :name, "Nome da categoria" %>
+
+    <%= form.text_field :name,
+        placeholder: "Ex: Tecnologia" %>
+  </div>
+
+  <div class="question-actions">
+
+    <%= form.submit "Criar categoria",
+        class: "submit-answer-button" %>
+
+    <%= link_to "Cancelar",
+                admin_categories_path,
+                class: "action-button" %>
+
+  </div>
+
+<% end %>
+
+  </div>
+
+</div>

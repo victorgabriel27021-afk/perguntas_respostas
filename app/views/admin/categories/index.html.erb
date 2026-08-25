@@ -1,0 +1,46 @@
+<div class="admin-dashboard-page">
+
+  <div class="admin-dashboard-header">
+    <h1>Categorias</h1>
+    <p>Gerencie as categorias utilizadas nas perguntas do Askly.</p>
+  </div>
+
+  <div class="admin-users-card">
+
+<div class="admin-users-header">
+  <strong>Categoria</strong>
+  <strong>Perguntas</strong>
+  <strong>Ações</strong>
+</div>
+
+<% @categories.each do |category| %>
+
+  <div class="admin-user-row">
+
+    <div>
+      <strong>
+        <%= category.name %>
+      </strong>
+    </div>
+
+    <div>
+      <%= category.questions.count %>
+    </div>
+
+    <div>
+      <%= link_to "Editar",
+                  "#",
+                  class: "admin-action-button" %>
+
+      <%= link_to "Excluir",
+                  "#",
+                  class: "admin-action-button delete-button" %>
+    </div>
+
+  </div>
+
+<% end %>
+
+  </div>
+
+</div>

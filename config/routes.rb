@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
+  get "categories", to: "categories#index"
+  get "categories/new", to: "categories#new", as: :new_category
   get "questions", to: "questions#index"
   get "dashboard", to: "dashboard#index"
   get "users", to: "users#index"
