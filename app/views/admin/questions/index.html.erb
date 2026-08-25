@@ -1,2 +1,60 @@
-<h1>Admin::Questions#index</h1>
-<p>Find me in app/views/admin/questions/index.html.erb</p>
+<div class="admin-dashboard-page">
+
+  <div class="admin-dashboard-header">
+    <h1>Perguntas</h1>
+    <p>Gerencie todas as perguntas cadastradas no Askly.</p>
+  </div>
+
+  <div class="admin-users-card">
+
+
+<div class="admin-users-header">
+  <strong>Pergunta</strong>
+  <strong>Categoria</strong>
+  <strong>Criada por</strong>
+  <strong>Ações</strong>
+</div>
+
+<% @questions.each do |question| %>
+
+  <div class="admin-user-row">
+
+    <div>
+      <strong>
+        <%= question.description %>
+      </strong>
+    </div>
+
+    <div>
+      <%= question.category.name %>
+    </div>
+
+    <div>
+      <%= question.user.email %>
+    </div>
+
+    <div>
+  <%= link_to "Ver",
+              question_path(question),
+              class: "admin-action-button" %>
+
+  <%= link_to "Editar",
+              edit_question_path(question),
+              class: "admin-action-button" %>
+
+  <%= link_to "Excluir",
+              question_path(question),
+              data: {
+                turbo_method: :delete,
+                turbo_confirm: "Tem certeza que deseja excluir esta pergunta?"
+              },
+              class: "admin-action-button delete-button" %>
+</div>
+
+  </div>
+
+<% end %>
+
+  </div>
+
+</div>

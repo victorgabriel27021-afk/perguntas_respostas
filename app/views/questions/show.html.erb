@@ -2,7 +2,6 @@
 
   <div class="question-detail-card">
 
-```
 <div class="question-detail-header">
   <span class="question-label">Pergunta</span>
 
@@ -36,13 +35,13 @@
               questions_path,
               class: "action-button" %>
 </div>
-```
+
 
   </div>
 
   <div class="answers-section">
 
-```
+
 <h2>Respostas</h2>
 
 <% if @question.answers.any? %>
@@ -68,13 +67,13 @@
   </p>
 
 <% end %>
-```
+
 
   </div>
 
   <div class="answer-form-card">
 
-```
+
 <h2>Responder pergunta</h2>
 
 <%= form_with model: [@question, Answer.new] do |form| %>
@@ -90,7 +89,7 @@
   <%= form.submit "Responder", class: "submit-answer-button" %>
 
 <% end %>
-```
+
 
   </div>
 

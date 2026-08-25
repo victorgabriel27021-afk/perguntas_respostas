@@ -1,14 +1,39 @@
+<div class="question-page">
+
+  <div class="question-detail-card">
+
+<div class="question-detail-header">
+  <span class="question-label">
+    Editar pergunta
+  </span>
+</div>
+
 <h1>Editar pergunta</h1>
 
 <%= form_with model: @question do |form| %>
-  <div>
+
+  <div class="form-group">
     <%= form.label :description, "Pergunta" %>
-    <%= form.text_area :description %>
+
+    <%= form.text_area :description,
+        rows: 6,
+        placeholder: "Digite sua pergunta..." %>
   </div>
 
-  <div>
-    <%= form.submit "Atualizar pergunta" %>
+  <div class="question-actions">
+
+    <%= form.submit "Atualizar pergunta",
+        class: "submit-answer-button" %>
+
+    <%= link_to "Cancelar",
+                question_path(@question),
+                class: "action-button" %>
+
   </div>
+
 <% end %>
 
-<%= link_to "Voltar", question_path(@question) %>
+
+  </div>
+
+</div>
