@@ -41,8 +41,13 @@ class: "dashboard-button" %>
                   class: "admin-action-button" %>
 
       <%= link_to "Excluir",
-                  "#",
-                  class: "admin-action-button delete-button" %>
+admin_category_path(category),
+data: {
+turbo_method: :delete,
+turbo_confirm: "Tem certeza que deseja excluir esta categoria?"
+},
+class: "admin-action-button delete-button" %>
+
     </div>
 
   </div>
