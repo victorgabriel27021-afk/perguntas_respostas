@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   namespace :admin do
-  get "categories", to: "categories#index"
-  get "categories/new", to: "categories#new", as: :new_category
+  resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
+
   get "questions", to: "questions#index"
   get "dashboard", to: "dashboard#index"
   get "users", to: "users#index"
 end
+
   devise_for :users
 
   root "questions#index"

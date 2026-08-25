@@ -1,0 +1,38 @@
+<div class="admin-dashboard-page">
+
+  <div class="admin-dashboard-header">
+    <div>
+      <h1>Editar categoria</h1>
+      <p>Altere o nome da categoria.</p>
+    </div>
+  </div>
+
+  <div class="admin-users-card">
+
+<%= form_with model: @category,
+              url: admin_category_path(@category),
+              method: :patch do |form| %>
+
+  <div class="form-group">
+    <%= form.label :name, "Nome da categoria" %>
+
+    <%= form.text_field :name,
+        placeholder: "Ex: Tecnologia" %>
+  </div>
+
+  <div class="question-actions">
+
+    <%= form.submit "Salvar alterações",
+        class: "submit-answer-button" %>
+
+    <%= link_to "Cancelar",
+                admin_categories_path,
+                class: "action-button" %>
+
+  </div>
+
+<% end %>
+
+  </div>
+
+</div>
