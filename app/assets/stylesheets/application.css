@@ -981,3 +981,33 @@ border-radius: 8px;
 font-family: inherit;
 font-size: 15px;
 }
+
+.admin-user-details {
+padding: 30px;
+}
+
+.admin-user-details > div {
+margin-bottom: 20px;
+}
+
+.admin-user-details strong {
+display: block;
+margin-bottom: 6px;
+}
+
+.admin-user-details p {
+margin: 0;
+color: #4b5563;
+}
+
+.admin-action-button {
+display: inline-block;
+margin-right: 8px;
+margin-bottom: 6px;
+white-space: nowrap;
+}
+
+.admin-action-button:last-child {
+margin-right: 0;
+}
+

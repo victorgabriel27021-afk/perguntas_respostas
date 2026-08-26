@@ -12,6 +12,7 @@
   <strong>Usuário</strong>
   <strong>E-mail</strong>
   <strong>Tipo</strong>
+  <strong>Ações</strong>
 </div>
 
 <% @users.each do |user| %>
@@ -19,11 +20,14 @@
   <div class="admin-user-row">
 
     <div>
-      <strong>
-        <%= user.first_name.presence || "Sem nome" %>
-        <%= user.last_name %>
-      </strong>
-    </div>
+  <strong>
+    <%= link_to(
+          "#{user.first_name.presence || 'Sem nome'} #{user.last_name}".strip,
+          admin_user_path(user),
+          class: "admin-user-name"
+        ) %>
+  </strong>
+</div>
 
     <div>
       <%= user.email %>
@@ -40,6 +44,40 @@
         </span>
       <% end %>
     </div>
+
+    <div>
+
+<%= link_to "Ver",
+admin_user_path(user),
+class: "admin-action-button" %>
+
+<%= link_to "Editar",
+edit_admin_user_path(user),
+class: "admin-action-button" %>
+
+<%= link_to user.admin? ? "Remover admin" : "Tornar admin",
+admin_toggle_admin_user_path(user),
+data: {
+turbo_method: :patch,
+turbo_confirm: user.admin? ?
+"Tem certeza que deseja remover o administrador deste usuário?" :
+"Tem certeza que deseja tornar este usuário administrador?"
+},
+class: "admin-action-button" %>
+
+
+<% unless user == current_user %>
+<%= link_to "Excluir",
+admin_delete_user_path(user),
+data: {
+turbo_method: :delete,
+turbo_confirm: "Tem certeza que deseja excluir este usuário?"
+},
+class: "admin-action-button delete-button" %>
+<% end %>
+
+</div>
+
 
   </div>
 

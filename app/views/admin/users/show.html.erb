@@ -1,0 +1,55 @@
+<div class="admin-dashboard-page">
+
+  <div class="admin-dashboard-header">
+    <div>
+      <h1>Detalhes do usuário</h1>
+      <p>Informações do usuário cadastrado no Askly.</p>
+    </div>
+  </div>
+
+  <div class="admin-users-card">
+
+<div class="admin-user-details">
+
+  <div>
+    <strong>Nome</strong>
+    <p>
+      <%= @user.first_name.presence || "Sem nome" %>
+      <%= @user.last_name %>
+    </p>
+  </div>
+
+  <div>
+    <strong>E-mail</strong>
+    <p><%= @user.email %></p>
+  </div>
+
+  <div>
+    <strong>Tipo de conta</strong>
+    <p>
+      <% if @user.admin? %>
+        <span class="admin-badge">Administrador</span>
+      <% else %>
+        <span class="user-badge">Usuário</span>
+      <% end %>
+    </p>
+  </div>
+
+  <div>
+    <strong>Cadastrado em</strong>
+    <p><%= @user.created_at.strftime("%d/%m/%Y às %H:%M") %></p>
+  </div>
+
+</div>
+
+<div class="question-actions">
+
+  <%= link_to "Voltar",
+              admin_users_path,
+              class: "action-button" %>
+
+</div>
+
+  </div>
+
+</div>
