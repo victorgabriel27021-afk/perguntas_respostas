@@ -5,6 +5,8 @@ class CreateAnswerVotes < ActiveRecord::Migration[7.2]
       t.references :answer, null: false, foreign_key: true
       t.integer :value
 
+      t.index [:user_id, :answer_id], unique: true
+
       t.timestamps
     end
   end

@@ -29,6 +29,8 @@ end
     resources :answers, only: [:create]
   end
 
+  post "answers/:id/vote", to: "answers#vote", as: :vote_answer
+
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

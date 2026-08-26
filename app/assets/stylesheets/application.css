@@ -1168,3 +1168,8 @@ flex-direction: column;
 text-align: center;
 }
 }
+
+.vote-button.active {
+  background: #2563eb;
+  color: blue;
+}

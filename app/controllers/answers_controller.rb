@@ -13,6 +13,16 @@ class AnswersController < ApplicationController
     end
   end
 
+  def vote
+    @answer = Answer.find(params[:id])
+
+    vote = current_user.answer_votes.find_or_initialize_by(answer: @answer)
+    vote.value = params[:value].to_i
+    vote.save
+
+    redirect_to question_path(@answer.question)
+  end
+
   private
 
   def answer_params

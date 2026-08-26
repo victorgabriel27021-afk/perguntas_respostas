@@ -57,6 +57,32 @@
         Respondido por: <strong><%= answer.user.email %></strong>
       </small>
 
+      <div class="answer-voting" style="display: flex; gap: 10px; align-items: center;">
+
+  <% user_vote = answer.answer_votes.find_by(user: current_user) %>
+
+  <%= button_to "👍",
+              vote_answer_path(answer),
+              method: :post,
+              params: { value: 1 },
+              class: "vote-button #{user_vote&.value == 1 ? 'active' : ''}" %>
+
+<span>
+  <%= answer.answer_votes.where(value: 1).count %>
+</span>
+
+<%= button_to "👎",
+              vote_answer_path(answer),
+              method: :post,
+              params: { value: -1 },
+              class: "vote-button #{user_vote&.value == -1 ? 'active' : ''}" %>
+
+<span>
+  <%= answer.answer_votes.where(value: -1).count %>
+</span>
+
+</div>
+
     </div>
   <% end %>
 

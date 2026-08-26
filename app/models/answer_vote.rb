@@ -1,6 +1,6 @@
-class Answer < ApplicationRecord
+class AnswerVote < ApplicationRecord
   belongs_to :user
-  belongs_to :question
+  belongs_to :answer
 
-  has_many :answer_votes, dependent: :destroy
+  validates :value, inclusion: { in: [-1, 1] }
 end
