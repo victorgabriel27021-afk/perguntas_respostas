@@ -1,21 +1,14 @@
 <div class="questions-page">
 
-  <div class="questions-header">
-    <div>
-      <h1>Perguntas</h1>
-      <p>Encontre perguntas e compartilhe seu conhecimento.</p>
-    </div>
-
+  <div class="questions-header">     <div>       <h1>Perguntas</h1>       <p>Encontre perguntas e compartilhe seu conhecimento.</p>     </div>
 
 <%= link_to "Nova pergunta",
             new_question_path,
             class: "new-question-button" %>
 
-
   </div>
 
   <ul class="questions-list">
-
 
 <% @questions.each do |question| %>
 
