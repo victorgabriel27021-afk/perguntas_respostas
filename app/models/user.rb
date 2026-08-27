@@ -16,6 +16,19 @@ class User < ApplicationRecord
   save!
 end
 
+def reputation_level
+  case reputation
+  when 0...50
+    "Novato"
+  when 50...100
+    "Colaborador"
+  when 100...250
+    "Especialista"
+  else
+    "Mestre"
+  end
+end
+
   private
 
 def set_default_reputation

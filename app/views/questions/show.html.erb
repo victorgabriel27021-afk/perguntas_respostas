@@ -54,8 +54,10 @@
       </p>
 
       <small>
-        Respondido por: <strong><%= answer.user.email %></strong>
-      </small>
+  Respondido por: <strong><%= answer.user.email %></strong>
+  · 🏆 <%= answer.user.reputation %> pontos
+  · 🎖️ <%= answer.user.reputation_level %>
+</small>
 
       <div class="answer-voting" style="display: flex; gap: 10px; align-items: center;">
 
