@@ -17,8 +17,29 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
 
     vote = current_user.answer_votes.find_or_initialize_by(answer: @answer)
-    vote.value = params[:value].to_i
+
+    old_value = vote.value
+    new_value = params[:value].to_i
+
+    if old_value == new_value
+      redirect_to question_path(@answer.question)
+      return
+    end
+
+    if old_value == 1
+      @answer.user.add_reputation(-10)
+    elsif old_value == -1
+      @answer.user.add_reputation(2)
+    end
+
+    vote.value = new_value
     vote.save
+
+    if new_value == 1
+      @answer.user.add_reputation(10)
+    elsif new_value == -1
+      @answer.user.add_reputation(-2)
+    end
 
     redirect_to question_path(@answer.question)
   end
