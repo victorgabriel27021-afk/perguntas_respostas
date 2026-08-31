@@ -1282,3 +1282,62 @@ RANKING
   }
 
 }
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar-toggle {
+  position: fixed;
+  top: 13px;
+  left: 20px;
+  z-index: 1002;
+  background: #2563eb;
+  color: white;
+  border: none;
+  width: 44px;
+  padding: 10px 10px;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.sidebar-open .sidebar-toggle {
+  left: 240px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100vh;
+  background: #111827;
+  padding: 90px 20px 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
+
+.sidebar-open .sidebar {
+  left: 0;
+}
+
+.sidebar h2 {
+  color: white;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  color: #e5e7eb;
+  text-decoration: none;
+  padding: 12px 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.sidebar a:hover {
+  background: #2563eb;
+  color: white;
+}
