@@ -2,8 +2,12 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+  if params[:search].present?
+    @questions = Question.where("description LIKE ?", "%#{params[:search]}%")
+  else
     @questions = Question.all
   end
+end
 
   def my_questions
   @questions = current_user.questions

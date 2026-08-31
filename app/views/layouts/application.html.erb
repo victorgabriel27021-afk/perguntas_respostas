@@ -62,8 +62,14 @@
 
         <%= link_to "Askly", root_path, class: "navbar-logo" %>
 
-        <form class="navbar-search">
-  <input type="text" placeholder="Pesquisar perguntas...">
+        <form class="navbar-search" action="<%= questions_path %>" method="get">
+  <input
+    type="text"
+    name="search"
+    placeholder="Pesquisar perguntas..."
+    value="<%= params[:search] %>"
+  >
+
   <button type="submit">🔍</button>
 </form>
 
