@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "ranking", to: "ranking#index"
   namespace :admin do
   resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
 

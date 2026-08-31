@@ -1,0 +1,33 @@
+<div class="ranking-page">
+
+  <h1>🏆 Ranking de usuários</h1>
+
+  <div class="ranking-list">
+
+    <% @users.each_with_index do |user, index| %>
+
+      <div class="ranking-card">
+
+        <strong>
+          <%= index + 1 %>º
+        </strong>
+
+        <span>
+          <%= user.first_name.presence || user.email %>
+        </span>
+
+        <span>
+          🏆 <%= user.reputation %> pontos
+        </span>
+
+        <span>
+          🎖️ <%= user.reputation_level %>
+        </span>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+</div>
