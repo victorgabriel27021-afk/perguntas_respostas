@@ -1438,3 +1438,72 @@ RANKING
   color: #6b7280;
   font-size: 13px;
 }
+
+/* ==============================
+   RESPONSIVIDADE - CELULAR
+   ============================== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .navbar-logo {
+    font-size: 20px;
+  }
+
+  .navbar-search {
+    order: 3;
+    width: 100%;
+  }
+
+  .navbar-links {
+    gap: 8px;
+  }
+
+  .notification-bell {
+    position: relative;
+    z-index: 2;
+  }
+
+  .sidebar {
+    width: 260px;
+  }
+
+  .sidebar-toggle {
+    position: fixed;
+    top: 65px;
+    left: 10px;
+    z-index: 1001;
+  }
+
+  .sidebar-open .sidebar-toggle {
+  left: 240px;
+}
+
+}
+
+/* =========================
+   RESPONSIVIDADE - ADMIN
+========================= */
+
+@media (max-width: 700px) {
+
+  .navbar-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .navbar-link {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+}
