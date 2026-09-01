@@ -1,0 +1,35 @@
+<div class="notifications-page">
+
+  <h1>🔔 Notificações</h1>
+
+  <% if @notifications.any? %>
+
+    <div class="notifications-list">
+
+      <% @notifications.each do |notification| %>
+
+        <%= link_to read_notification_path(notification),
+            data: { turbo_method: :patch },
+            class: "notification-card" do %>
+
+  <span>
+    <%= notification.message %>
+  </span>
+
+  <small>
+    <%= notification.created_at.strftime("%d/%m/%Y %H:%M") %>
+  </small>
+
+<% end %>
+
+      <% end %>
+
+    </div>
+
+  <% else %>
+
+    <p>Você não possui notificações.</p>
+
+  <% end %>
+
+</div>

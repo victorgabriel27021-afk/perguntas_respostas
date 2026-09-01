@@ -77,7 +77,20 @@
 
           <% if user_signed_in? %>
 
-            <span class="navbar-user">
+  <%= link_to notifications_path,
+            class: "navbar-link notification-bell" do %>
+  🔔
+
+  <% unread_count = current_user.notifications.where(read: false).count %>
+
+  <% if unread_count > 0 %>
+    <span class="notification-count">
+      <%= unread_count %>
+    </span>
+  <% end %>
+<% end %>
+
+  <span class="navbar-user">
               <%= current_user.first_name.presence || current_user.email %>
             </span>
 

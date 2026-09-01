@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "notifications", to: "notifications#index"
+  patch "notifications/:id/read", to: "notifications#read", as: :read_notification
   get "ranking", to: "ranking#index"
   namespace :admin do
   resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
