@@ -1389,3 +1389,52 @@ RANKING
   background: #374151;
   margin: 20px 0;
 }
+
+/* ==============================
+   NOTIFICAÇÕES
+   ============================== */
+
+.notifications-page {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 25px;
+}
+
+.notifications-page h1 {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.notifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notification-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  text-decoration: none;
+  color: #1f2937;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.10);
+}
+
+.notification-card span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.notification-card small {
+  color: #6b7280;
+  font-size: 13px;
+}
