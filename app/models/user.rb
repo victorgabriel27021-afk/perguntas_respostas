@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   has_many :answer_votes, dependent: :destroy
 
+  has_many :notifications, dependent: :destroy
+
   def add_reputation(points)
   self.reputation += points
   save!

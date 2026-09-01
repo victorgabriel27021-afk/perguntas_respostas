@@ -7,8 +7,15 @@ class AnswersController < ApplicationController
   @answer.question = @question
 
   if @answer.save
-    current_user.add_reputation(5)
-    redirect_to question_path(@question)
+  current_user.add_reputation(5)
+
+  unless @question.user == current_user
+    @question.user.notifications.create(
+      message: "#{current_user.first_name.presence || current_user.email} respondeu sua pergunta."
+    )
+  end
+
+  redirect_to question_path(@question)
   else
     redirect_to question_path(@question)
   end

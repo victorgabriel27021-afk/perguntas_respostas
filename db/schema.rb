@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_08_27_212536) do
+ActiveRecord::Schema[7.2].define(version: 2026_09_01_181712) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -66,6 +66,15 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_27_212536) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "message"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.text "description"
     t.datetime "created_at", null: false
@@ -102,6 +111,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_08_27_212536) do
   add_foreign_key "answer_votes", "users"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
+  add_foreign_key "notifications", "users"
   add_foreign_key "questions", "categories"
   add_foreign_key "questions", "users"
 end
