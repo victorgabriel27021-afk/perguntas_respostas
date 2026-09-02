@@ -19,21 +19,27 @@
 </p>
 
 <div class="question-actions">
-  <%= link_to "Editar",
-              edit_question_path(@question),
-              class: "action-button" %>
 
-  <%= link_to "Excluir",
-              question_path(@question),
-              data: {
-                turbo_method: :delete,
-                turbo_confirm: "Tem certeza que deseja excluir esta pergunta?"
-              },
-              class: "action-button delete-button" %>
+  <% if @question.user == current_user || current_user.admin? %>
+
+    <%= link_to "Editar",
+                edit_question_path(@question),
+                class: "action-button" %>
+
+    <%= link_to "Excluir",
+                question_path(@question),
+                data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Tem certeza que deseja excluir esta pergunta?"
+                },
+                class: "action-button delete-button" %>
+
+  <% end %>
 
   <%= link_to "Voltar",
               questions_path,
               class: "action-button" %>
+
 </div>
 
 

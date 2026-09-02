@@ -33,11 +33,11 @@ end
   end
 
   def edit
-  @question = Question.find(params[:id])
-  end
+  @question = current_user.questions.find(params[:id])
+end
 
-  def update
-  @question = Question.find(params[:id])
+   def update
+  @question = current_user.questions.find(params[:id])
 
   if @question.update(question_params)
     redirect_to question_path(@question)
@@ -47,7 +47,7 @@ end
 end
 
 def destroy
-  @question = Question.find(params[:id])
+  @question = current_user.questions.find(params[:id])
   @question.destroy
 
   redirect_to questions_path
