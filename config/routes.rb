@@ -9,9 +9,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "dashboard#index"
 
   resources :users, only: [:index, :show, :edit, :update, :destroy]
-  patch "users/:id", to: "users#update", as: :update_user
-  delete "users/:id", to: "users#destroy", as: :delete_user
-  patch "users/:id/toggle_admin", to: "users#toggle_admin", as: :toggle_admin_user
+patch "users/:id/toggle_admin", to: "users#toggle_admin", as: :toggle_admin_user
 end
 
   devise_for :users
