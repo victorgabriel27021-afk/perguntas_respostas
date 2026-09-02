@@ -81,7 +81,7 @@
             class: "navbar-link notification-bell" do %>
   🔔
 
-  <% unread_count = current_user.notifications.where(read: false).count %>
+  <% unread_count = current_user.notifications.where(read: false).or(current_user.notifications.where(read: nil)).count %>
 
   <% if unread_count > 0 %>
     <span class="notification-count">
