@@ -3,10 +3,12 @@
   <div class="question-detail-card">
 
 <div class="question-detail-header">
-  <span class="question-label">Pergunta</span>
+  <span class="question-label">
+    <%= t("question.label") %>
+  </span>
 
   <span class="question-category">
-    <%= @question.category&.name || "Sem categoria" %>
+    <%= @question.category&.name || t("question.no_category") %>
   </span>
 </div>
 
@@ -15,40 +17,39 @@
 </h1>
 
 <p class="question-author">
-  Perguntado por: <strong><%= @question.user.email %></strong>
+  <%= t("question.asked_by") %>
+  <strong><%= @question.user.email %></strong>
 </p>
 
 <div class="question-actions">
 
   <% if @question.user == current_user || current_user.admin? %>
 
-    <%= link_to "Editar",
+    <%= link_to t("question.edit"),
                 edit_question_path(@question),
                 class: "action-button" %>
 
-    <%= link_to "Excluir",
+    <%= link_to t("question.delete"),
                 question_path(@question),
                 data: {
                   turbo_method: :delete,
-                  turbo_confirm: "Tem certeza que deseja excluir esta pergunta?"
+                  turbo_confirm: t("question.delete_confirm")
                 },
                 class: "action-button delete-button" %>
 
   <% end %>
 
-  <%= link_to "Voltar",
+  <%= link_to t("question.back"),
               questions_path,
               class: "action-button" %>
 
 </div>
 
-
   </div>
 
   <div class="answers-section">
 
-
-<h2>Respostas</h2>
+<h2><%= t("question.answers") %></h2>
 
 <% if @question.answers.any? %>
 
@@ -60,36 +61,37 @@
       </p>
 
       <small>
-  Respondido por: <strong><%= answer.user.email %></strong>
-  · 🏆 <%= answer.user.reputation %> pontos
-  · 🎖️ <%= answer.user.reputation_level %>
-</small>
+        <%= t("question.answered_by") %>
+        <strong><%= answer.user.email %></strong>
+        · 🏆 <%= answer.user.reputation %> <%= t("question.points") %>
+        · 🎖️ <%= answer.user.reputation_level %>
+      </small>
 
       <div class="answer-voting" style="display: flex; gap: 10px; align-items: center;">
 
-  <% user_vote = answer.answer_votes.find_by(user: current_user) %>
+        <% user_vote = answer.answer_votes.find_by(user: current_user) %>
 
-  <%= button_to "👍",
-              vote_answer_path(answer),
-              method: :post,
-              params: { value: 1 },
-              class: "vote-button #{user_vote&.value == 1 ? 'active' : ''}" %>
+        <%= button_to "👍",
+                    vote_answer_path(answer),
+                    method: :post,
+                    params: { value: 1 },
+                    class: "vote-button #{user_vote&.value == 1 ? 'active' : ''}" %>
 
-<span>
-  <%= answer.answer_votes.where(value: 1).count %>
-</span>
+        <span>
+          <%= answer.answer_votes.where(value: 1).count %>
+        </span>
 
-<%= button_to "👎",
-              vote_answer_path(answer),
-              method: :post,
-              params: { value: -1 },
-              class: "vote-button #{user_vote&.value == -1 ? 'active' : ''}" %>
+        <%= button_to "👎",
+                    vote_answer_path(answer),
+                    method: :post,
+                    params: { value: -1 },
+                    class: "vote-button #{user_vote&.value == -1 ? 'active' : ''}" %>
 
-<span>
-  <%= answer.answer_votes.where(value: -1).count %>
-</span>
+        <span>
+          <%= answer.answer_votes.where(value: -1).count %>
+        </span>
 
-</div>
+      </div>
 
     </div>
   <% end %>
@@ -97,34 +99,30 @@
 <% else %>
 
   <p class="no-answers">
-    Ainda não há respostas para esta pergunta.
+    <%= t("question.no_answers") %>
   </p>
 
 <% end %>
-
-
   </div>
 
   <div class="answer-form-card">
 
-
-<h2>Responder pergunta</h2>
+<h2><%= t("question.answer_question") %></h2>
 
 <%= form_with model: [@question, Answer.new] do |form| %>
 
   <div class="form-group">
-    <%= form.label :description, "Sua resposta" %>
+    <%= form.label :description, t("question.your_answer") %>
 
     <%= form.text_area :description,
-                       placeholder: "Escreva sua resposta...",
+                       placeholder: t("question.answer_placeholder"),
                        rows: 5 %>
   </div>
 
-  <%= form.submit "Responder", class: "submit-answer-button" %>
+  <%= form.submit t("question.answer"),
+                  class: "submit-answer-button" %>
 
 <% end %>
-
-
   </div>
 
 </div>
