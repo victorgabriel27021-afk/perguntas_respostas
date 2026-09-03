@@ -91,6 +91,16 @@ Rails.application.routes.draw do
 
 
   # =========================
+  # IDIOMA
+  # =========================
+
+  get "change_locale/:locale",
+      to: "application#change_locale",
+      as: :change_locale
+
+
+
+  # =========================
   # RAILS
   # =========================
 

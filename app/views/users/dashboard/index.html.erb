@@ -1,53 +1,67 @@
 <div class="dashboard-page">
 
-<div class="dashboard-header"> <h1>Olá, <%= current_user.first_name.presence || current_user.email %>!</h1> <p>Bem-vindo ao seu painel do Askly.</p> </div>
-
-<div class="dashboard-grid">
-
-  <div class="dashboard-card">
-    <h2>❓</h2>
-
-
-<div class="dashboard-number">
-  <%= current_user.questions.count %>
-</div>
-
-<p>Perguntas feitas</p>
-
-<%= link_to "Ver minhas perguntas",
-            my_questions_path,
-            class: "dashboard-button" %>
-
-
+  <div class="dashboard-header">
+    <h1>
+  <%= t("dashboard.greeting",
+        name: current_user.first_name.presence || current_user.email) %>!
+</h1>
+    <p><%= t("dashboard.welcome") %></p>
   </div>
 
-  <div class="dashboard-card">
-    <h2>💬</h2>
+  <div class="dashboard-grid">
 
+<div class="dashboard-card">
+  <h2>❓</h2>
 
-<div class="dashboard-number">
-  <%= current_user.answers.count %>
-</div>
-
-<p>Respostas dadas</p>
-
-
+  <div class="dashboard-number">
+    <%= current_user.questions.count %>
   </div>
 
-    <div class="dashboard-card">
-    <h2>💳</h2>
+  <p><%= t("dashboard.questions") %></p>
 
-    <div class="dashboard-number">
-      —
-    </div>
+  <%= link_to t("dashboard.view_questions"),
+              my_questions_path,
+              class: "dashboard-button" %>
+</div>
 
-    <p>Minha assinatura</p>
+<div class="dashboard-card">
+  <h2>💬</h2>
 
-    <span class="dashboard-status">
-      Em breve
-    </span>
+  <div class="dashboard-number">
+    <%= current_user.answers.count %>
   </div>
 
+  <p><%= t("dashboard.answers") %></p>
 </div>
+
+<div class="dashboard-card">
+  <h2>⭐</h2>
+
+  <div class="dashboard-number">
+    <%= current_user.reputation %>
+  </div>
+
+  <p><%= t("dashboard.reputation") %></p>
+
+  <span class="dashboard-status">
+    <%= current_user.reputation_level %>
+  </span>
+</div>
+
+<div class="dashboard-card">
+  <h2>💳</h2>
+
+  <div class="dashboard-number">
+    —
+  </div>
+
+  <p><%= t("dashboard.subscription") %></p>
+
+  <span class="dashboard-status">
+    <%= t("dashboard.coming_soon") %>
+  </span>
+</div>
+
+  </div>
 
 </div>

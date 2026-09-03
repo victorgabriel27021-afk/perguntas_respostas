@@ -1,8 +1,13 @@
 <div class="questions-page">
 
-  <div class="questions-header">     <div>       <h1>Perguntas</h1>       <p>Encontre perguntas e compartilhe seu conhecimento.</p>     </div>
+  <div class="questions-header">
+    <div>
+      <h1><%= t("questions.title") %></h1>
 
-<%= link_to "Nova pergunta",
+  <p><%= t("questions.subtitle") %></p>
+</div>
+
+<%= link_to t("questions.new_question"),
             new_question_path,
             class: "new-question-button" %>
 
@@ -25,12 +30,13 @@
       </span>
 
       <span>
-        Perguntado por <%= question.user.email %>
+        <%= t("questions.asked_by") %>
+        <%= question.user.email %>
       </span>
 
     </div>
 
-    <%= link_to "Ver pergunta →",
+    <%= link_to t("questions.view_question"),
                 question_path(question),
                 class: "view-question" %>
 

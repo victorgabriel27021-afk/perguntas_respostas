@@ -1,0 +1,26 @@
+pt-BR:
+  hello: "Olá"
+
+  dashboard:
+    greeting: "Olá, %{name}"
+    welcome: "Bem-vindo ao seu painel do Askly."
+    questions: "Perguntas feitas"
+    answers: "Respostas dadas"
+    reputation: "Reputação"
+    subscription: "Minha assinatura"
+    view_questions: "Ver minhas perguntas"
+    coming_soon: "Em breve"
+
+  reputation:
+    levels:
+      novice: "Novato"
+      contributor: "Colaborador"
+      expert: "Especialista"
+      master: "Mestre"
+
+  questions:
+    title: "Perguntas"
+    subtitle: "Encontre perguntas e compartilhe seu conhecimento."
+    new_question: "Nova pergunta"
+    asked_by: "Perguntado por"
+    view_question: "Ver pergunta →"

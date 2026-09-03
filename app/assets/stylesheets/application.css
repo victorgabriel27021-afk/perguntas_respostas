@@ -24,25 +24,38 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .questions-header h1 {
+  margin: 0 0 6px;
+  font-size: 34px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.questions-header p {
   margin: 0;
-  font-size: 32px;
+  color: #6b7280;
+  font-size: 15px;
 }
 
 .new-question-button {
+  display: inline-block;
   background: #2563eb;
   color: white;
   text-decoration: none;
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 9px;
+  font-weight: 600;
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .new-question-button:hover {
   background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
 }
 
 .questions-list {
@@ -53,11 +66,17 @@ body {
 
 .question-card {
   background: white;
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 24px;
   margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.question-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
 }
 
 .question-title {
@@ -72,7 +91,10 @@ body {
 }
 
 .question-info {
-  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
   color: #6b7280;
   font-size: 14px;
 }
@@ -83,8 +105,7 @@ body {
   color: #3730a3;
   padding: 5px 10px;
   border-radius: 20px;
-  font-weight: bold;
-  margin-right: 8px;
+  font-weight: 600;
 }
 
 .view-question {
@@ -92,11 +113,13 @@ body {
   margin-top: 18px;
   color: #2563eb;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .view-question:hover {
-  text-decoration: underline;
+  color: #1d4ed8;
+  transform: translateX(3px);
 }
 
 
@@ -368,19 +391,20 @@ body {
 }
 
 .dashboard-header {
-  margin-bottom: 35px;
+  margin-bottom: 40px;
 }
 
 .dashboard-header h1 {
   margin: 0 0 8px;
-  font-size: 32px;
+  font-size: 34px;
+  font-weight: 700;
   color: #111827;
 }
 
 .dashboard-header p {
   margin: 0;
   color: #6b7280;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .dashboard-grid {
@@ -398,12 +422,12 @@ body {
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .dashboard-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-  transition: 0.2s ease;
 }
 
 .dashboard-card h2 {
@@ -447,7 +471,7 @@ body {
 }
 
 .dashboard-number {
-  font-size: 42px;
+  font-size: 46px;
   font-weight: 700;
   color: #2563eb;
   line-height: 1;

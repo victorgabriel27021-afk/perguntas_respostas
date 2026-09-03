@@ -21,13 +21,13 @@ end
 def reputation_level
   case reputation
   when 0...50
-    "Novato"
+    I18n.t("reputation.levels.novice")
   when 50...100
-    "Colaborador"
+    I18n.t("reputation.levels.contributor")
   when 100...250
-    "Especialista"
+    I18n.t("reputation.levels.expert")
   else
-    "Mestre"
+    I18n.t("reputation.levels.master")
   end
 end
 
