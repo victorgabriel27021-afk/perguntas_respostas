@@ -34,6 +34,7 @@ end
 
   def edit
   @question = current_user.questions.find(params[:id])
+  @categories = Category.all
 end
 
    def update

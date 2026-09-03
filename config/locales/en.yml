@@ -51,3 +51,12 @@ en:
     select_category: "Select a category"
     create: "Create question"
     cancel: "Cancel"
+
+  edit_question:
+    label: "Edit question"
+    title: "Edit your question"
+    question: "Question"
+    category: "Category"
+    select_category: "Select a category"
+    update: "Update question"
+    cancel: "Cancel"

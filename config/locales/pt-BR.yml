@@ -51,3 +51,12 @@ pt-BR:
     select_category: "Selecione uma categoria"
     create: "Criar pergunta"
     cancel: "Cancelar"
+
+  edit_question:
+    label: "Editar pergunta"
+    title: "Edite sua pergunta"
+    question: "Pergunta"
+    category: "Categoria"
+    select_category: "Selecione uma categoria"
+    update: "Atualizar pergunta"
+    cancel: "Cancelar"

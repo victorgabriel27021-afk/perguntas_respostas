@@ -2,37 +2,45 @@
 
   <div class="question-detail-card">
 
-<div class="question-detail-header">
-  <span class="question-label">
-    Editar pergunta
-  </span>
-</div>
+    <div class="question-detail-header">
+      <span class="question-label">
+        <%= t("edit_question.label") %>
+      </span>
+    </div>
 
-<h1>Editar pergunta</h1>
+    <h1><%= t("edit_question.title") %></h1>
 
-<%= form_with model: @question do |form| %>
+    <%= form_with model: @question do |form| %>
 
-  <div class="form-group">
-    <%= form.label :description, "Pergunta" %>
+      <div class="form-group">
+        <%= form.label :description, t("edit_question.question") %>
 
-    <%= form.text_area :description,
-        rows: 6,
-        placeholder: "Digite sua pergunta..." %>
-  </div>
+        <%= form.text_area :description,
+            rows: 6 %>
+      </div>
 
-  <div class="question-actions">
+      <div class="form-group">
+        <%= form.label :category_id, t("edit_question.category") %>
 
-    <%= form.submit "Atualizar pergunta",
-        class: "submit-answer-button" %>
+        <%= form.collection_select :category_id,
+            @categories,
+            :id,
+            :name,
+            { prompt: t("edit_question.select_category") } %>
+      </div>
 
-    <%= link_to "Cancelar",
-                question_path(@question),
-                class: "action-button" %>
+      <div class="question-actions">
 
-  </div>
+        <%= form.submit t("edit_question.update"),
+            class: "submit-answer-button" %>
 
-<% end %>
+        <%= link_to t("edit_question.cancel"),
+                    question_path(@question),
+                    class: "action-button" %>
 
+      </div>
+
+    <% end %>
 
   </div>
 
