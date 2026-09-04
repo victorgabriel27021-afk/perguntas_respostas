@@ -549,6 +549,70 @@ body {
   font-size: 14px;
 }
 
+.profile-description {
+  text-align: center;
+  color: #6b7280;
+  margin: -15px 0 30px;
+  font-size: 15px;
+}
+
+.profile-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.profile-form-grid .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-form-grid label,
+.profile-card > .form-group label {
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.profile-form-grid input,
+.profile-card > .form-group input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.profile-form-grid input:focus,
+.profile-card > .form-group input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.profile-card > .form-group {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card > .form-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #111827;
+}
+
+@media (max-width: 700px) {
+  .profile-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* =========================
    ADMIN DASHBOARD
@@ -1363,4 +1427,31 @@ body {
     width: 100%;
     text-align: left;
   }
+}
+
+.profile-avatar-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar-file-input {
+  display: none;
+}
+
+.avatar-file-button {
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.avatar-file-button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
 }

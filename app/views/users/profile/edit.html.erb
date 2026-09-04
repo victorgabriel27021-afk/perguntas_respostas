@@ -2,69 +2,86 @@
 
   <div class="profile-card">
 
+    <h1><%= t("edit_profile.title") %></h1>
 
-<h1>Meu perfil</h1>
+    <p class="profile-description">
+      <%= t("edit_profile.description") %>
+    </p>
 
-<p class="profile-description">
-  Atualize seus dados pessoais.
-</p>
+    <%= form_with model: current_user,
+                  url: users_profile_path,
+                  method: :patch do |form| %>
 
-<%= form_with model: current_user,
-              url: users_profile_path,
-              method: :patch do |form| %>
+      <div class="form-group profile-avatar-form"
+     data-controller="avatar-upload">
 
-  <div class="form-group">
-  <%= form.label :avatar, "Foto de perfil" %>
-  <%= form.file_field :avatar %>
+  <%= form.label :avatar, t("edit_profile.avatar") %>
+
+  <%= form.file_field :avatar,
+                    id: "avatar-upload",
+                    class: "avatar-file-input",
+                    data: {
+                      avatar_upload_target: "input",
+                      action: "change->avatar-upload#updateFileName"
+                    } %>
+
+  <label for="avatar-upload" class="avatar-file-button">
+    <%= t("edit_profile.choose_file") %>
+  </label>
+
+  <span id="avatar-file-name"
+      class="avatar-file-name"
+      data-avatar-upload-target="fileName">
+  <%= t("edit_profile.no_file") %>
+</span>
+
 </div>
+      <div class="profile-form-grid">
 
-  <div class="profile-form-grid">
+        <div class="form-group">
+          <%= form.label :first_name, t("edit_profile.first_name") %>
+          <%= form.text_field :first_name %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :first_name, "Nome" %>
-      <%= form.text_field :first_name %>
-    </div>
+        <div class="form-group">
+          <%= form.label :last_name, t("edit_profile.last_name") %>
+          <%= form.text_field :last_name %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :last_name, "Sobrenome" %>
-      <%= form.text_field :last_name %>
-    </div>
+        <div class="form-group">
+          <%= form.label :phone, t("edit_profile.phone") %>
+          <%= form.telephone_field :phone %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :phone, "Telefone" %>
-      <%= form.telephone_field :phone %>
-    </div>
+        <div class="form-group">
+          <%= form.label :birth_date, t("edit_profile.birth_date") %>
+          <%= form.date_field :birth_date %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :birth_date, "Data de nascimento" %>
-      <%= form.date_field :birth_date %>
-    </div>
+        <div class="form-group">
+          <%= form.label :city, t("edit_profile.city") %>
+          <%= form.text_field :city %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :city, "Cidade" %>
-      <%= form.text_field :city %>
-    </div>
+        <div class="form-group">
+          <%= form.label :state, t("edit_profile.state") %>
+          <%= form.text_field :state %>
+        </div>
 
-    <div class="form-group">
-      <%= form.label :state, "Estado" %>
-      <%= form.text_field :state %>
-    </div>
+      </div>
 
-  </div>
+      <div class="profile-actions">
 
-  <div class="profile-actions">
+        <%= form.submit t("edit_profile.save"),
+                        class: "submit-answer-button" %>
 
-    <%= form.submit "Salvar alterações",
-                    class: "submit-answer-button" %>
+        <%= link_to t("edit_profile.back"),
+                    users_profile_path,
+                    class: "action-button" %>
 
-    <%= link_to "Voltar",
-                users_profile_path,
-                class: "action-button" %>
+      </div>
 
-  </div>
-
-<% end %>
-
+    <% end %>
 
   </div>
 

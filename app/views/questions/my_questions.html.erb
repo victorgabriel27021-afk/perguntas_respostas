@@ -2,70 +2,63 @@
 
   <div class="questions-header">
     <div>
-      <h1>Minhas perguntas</h1>
-      <p>Aqui estão as perguntas que você criou no Askly.</p>
+      <h1><%= t("my_questions.title") %></h1>
+      <p><%= t("my_questions.subtitle") %></p>
     </div>
 
-
-<%= link_to "Nova pergunta",
-            new_question_path,
-            class: "new-question-button" %>
-
-
+    <%= link_to t("my_questions.new_question"),
+                new_question_path,
+                class: "new-question-button" %>
   </div>
 
-<% if @questions.any? %>
+  <% if @questions.any? %>
 
+    <ul class="questions-list">
 
-<ul class="questions-list">
+      <% @questions.each do |question| %>
 
-  <% @questions.each do |question| %>
+        <li class="question-card">
 
-    <li class="question-card">
+          <%= link_to question.description,
+                      question_path(question),
+                      class: "question-title" %>
 
-      <%= link_to question.description,
-                  question_path(question),
-                  class: "question-title" %>
+          <div class="question-info">
 
-      <div class="question-info">
+            <span class="question-category">
+              <%= question.category.name %>
+            </span>
 
-        <span class="question-category">
-          <%= question.category.name %>
-        </span>
+            <span>
+              <%= t("my_questions.created_by_you") %>
+            </span>
 
-        <span>
-          Criada por você
-        </span>
+          </div>
 
-      </div>
+          <%= link_to t("my_questions.view_question"),
+                      question_path(question),
+                      class: "view-question" %>
 
-      <%= link_to "Ver pergunta →",
-                  question_path(question),
-                  class: "view-question" %>
+        </li>
 
-    </li>
+      <% end %>
+
+    </ul>
+
+  <% else %>
+
+    <div class="question-card">
+      <h2><%= t("my_questions.no_questions") %></h2>
+
+      <p>
+        <%= t("my_questions.no_questions_text") %>
+      </p>
+
+      <%= link_to t("my_questions.ask_question"),
+                  new_question_path,
+                  class: "dashboard-button" %>
+    </div>
 
   <% end %>
-
-</ul>
-
-
-<% else %>
-
-
-<div class="question-card">
-  <h2>Você ainda não fez nenhuma pergunta.</h2>
-
-  <p>
-    Faça sua primeira pergunta e comece a participar do Askly.
-  </p>
-
-  <%= link_to "Fazer uma pergunta",
-              new_question_path,
-              class: "dashboard-button" %>
-</div>
-
-
-<% end %>
 
 </div>

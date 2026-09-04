@@ -3,72 +3,71 @@
   <div class="profile-card">
 
     <% if current_user.avatar.attached? %>
-  <%= image_tag current_user.avatar, class: "profile-avatar" %>
-<% else %>
-  <div class="profile-avatar-placeholder">
-    Sem foto
-  </div>
-<% end %>
+      <%= image_tag current_user.avatar, class: "profile-avatar" %>
+    <% else %>
+      <div class="profile-avatar-placeholder">
+        <%= t("profile.no_photo") %>
+      </div>
+    <% end %>
 
-<h1>Meu perfil</h1>
+    <h1><%= t("profile.title") %></h1>
 
-<div class="profile-info">
+    <div class="profile-info">
 
-  <p>
-    <strong>Nome:</strong>
-    <%= current_user.first_name %>
-    <%= current_user.last_name %>
-  </p>
+      <p>
+        <strong><%= t("profile.name") %></strong>
+        <%= current_user.first_name %>
+        <%= current_user.last_name %>
+      </p>
 
-  <p>
-    <strong>E-mail:</strong>
-    <%= current_user.email %>
-  </p>
+      <p>
+        <strong><%= t("profile.email") %></strong>
+        <%= current_user.email %>
+      </p>
 
-  <p>
-    <strong>Telefone:</strong>
-    <%= current_user.phone %>
-  </p>
+      <p>
+        <strong><%= t("profile.phone") %></strong>
+        <%= current_user.phone %>
+      </p>
 
-  <p>
-    <strong>Data de nascimento:</strong>
-    <%= current_user.birth_date&.strftime("%d/%m/%Y") %>
-  </p>
+      <p>
+        <strong><%= t("profile.birth_date") %></strong>
+        <%= current_user.birth_date&.strftime("%d/%m/%Y") %>
+      </p>
 
-  <p>
-    <strong>Cidade:</strong>
-    <%= current_user.city %>
-  </p>
+      <p>
+        <strong><%= t("profile.city") %></strong>
+        <%= current_user.city %>
+      </p>
 
-  <p>
-    <strong>Estado:</strong>
-    <%= current_user.state %>
-  </p>
+      <p>
+        <strong><%= t("profile.state") %></strong>
+        <%= current_user.state %>
+      </p>
 
-  <p>
-  <strong>Reputação:</strong>
-  🏆 <%= current_user.reputation %> pontos
-</p>
+      <p>
+        <strong><%= t("profile.reputation") %></strong>
+        🏆 <%= current_user.reputation %> <%= t("profile.points") %>
+      </p>
 
-<p>
-  <strong>Nível:</strong>
-  🎖️ <%= current_user.reputation_level %>
-</p>
+      <p>
+        <strong><%= t("profile.level") %></strong>
+        🎖️ <%= current_user.reputation_level %>
+      </p>
 
-</div>
+    </div>
 
-<div class="profile-actions">
+    <div class="profile-actions">
 
-  <%= link_to "Editar perfil",
-              users_edit_profile_path,
-              class: "action-button" %>
+      <%= link_to t("profile.edit"),
+                  users_edit_profile_path,
+                  class: "action-button" %>
 
-  <%= link_to "Voltar ao dashboard",
-              dashboard_path,
-              class: "action-button" %>
+      <%= link_to t("profile.back_dashboard"),
+                  dashboard_path,
+                  class: "action-button" %>
 
-</div>
-
+    </div>
 
   </div>
 
