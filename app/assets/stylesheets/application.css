@@ -1455,3 +1455,33 @@ body {
   background: #1d4ed8;
   transform: translateY(-1px);
 }
+
+/* =========================
+   NAVBAR RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .navbar-container {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .navbar-search {
+    order: 3;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .navbar-links {
+    margin-left: auto;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .navbar-link,
+  .navbar-button {
+    white-space: nowrap;
+  }
+}
