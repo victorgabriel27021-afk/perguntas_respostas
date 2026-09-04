@@ -1,18 +1,17 @@
 <div class="admin-dashboard-page">
 
   <div class="admin-dashboard-header">
-    <h1>Perguntas</h1>
-    <p>Gerencie todas as perguntas cadastradas no Askly.</p>
+    <h1><%= t("admin_questions.title") %></h1>
+    <p><%= t("admin_questions.subtitle") %></p>
   </div>
 
   <div class="admin-users-card">
 
-
 <div class="admin-users-header">
-  <strong>Pergunta</strong>
-  <strong>Categoria</strong>
-  <strong>Criada por</strong>
-  <strong>Ações</strong>
+  <strong><%= t("admin_questions.question") %></strong>
+  <strong><%= t("admin_questions.category") %></strong>
+  <strong><%= t("admin_questions.created_by") %></strong>
+  <strong><%= t("admin_questions.actions") %></strong>
 </div>
 
 <% @questions.each do |question| %>
@@ -34,22 +33,24 @@
     </div>
 
     <div>
-  <%= link_to "Ver",
-              question_path(question),
-              class: "admin-action-button" %>
 
-  <%= link_to "Editar",
-              edit_question_path(question),
-              class: "admin-action-button" %>
+      <%= link_to t("admin_questions.view"),
+                  question_path(question),
+                  class: "admin-action-button" %>
 
-  <%= link_to "Excluir",
-              question_path(question),
-              data: {
-                turbo_method: :delete,
-                turbo_confirm: "Tem certeza que deseja excluir esta pergunta?"
-              },
-              class: "admin-action-button delete-button" %>
-</div>
+      <%= link_to t("admin_questions.edit"),
+                  edit_question_path(question),
+                  class: "admin-action-button" %>
+
+      <%= link_to t("admin_questions.delete"),
+                  question_path(question),
+                  data: {
+                    turbo_method: :delete,
+                    turbo_confirm: t("admin_questions.confirm_delete")
+                  },
+                  class: "admin-action-button delete-button" %>
+
+    </div>
 
   </div>
 

@@ -86,6 +86,12 @@ en:
     edit: "Edit profile"
     back_dashboard: "Back to dashboard"
 
+  notifications:
+    title: "Notifications"
+    empty: "You don't have any notifications."
+    answered_question: "%{user} answered your question."
+
+
   edit_profile:
     title: "My profile"
     description: "Update your personal information."
@@ -100,3 +106,176 @@ en:
     back: "Back"
     choose_file: "Choose file"
     no_file: "No file selected"
+
+  sidebar:
+    questions: "Questions"
+    dashboard: "Dashboard"
+    profile: "My profile"
+    reputation: "My reputation"
+    my_questions: "My questions"
+    my_answers: "My answers"
+    ranking: "Ranking"
+    settings: "Settings"
+    logout: "Log out"
+
+  navbar:
+    search_placeholder: "Search questions..."
+    admin_panel: "Admin Panel"
+    logout: "Log out"
+    login: "Log in"
+    register: "Sign up"
+
+  ranking:
+    title: "User ranking"
+    points: "points"
+
+  admin:
+    title: "Askly - Administration"
+    panel: "Dashboard"
+    users: "Users"
+    questions: "Questions"
+    categories: "Categories"
+    subscriptions: "Subscriptions"
+    back_to_site: "Back to site"
+
+  admin_dashboard:
+    title: "Admin Dashboard"
+    subtitle: "Manage and monitor Askly."
+    users_count: "Registered users"
+    questions_count: "Registered questions"
+    answers_count: "Registered answers"
+    categories: "Categories"
+
+  admin_users:
+    title: "Users"
+    subtitle: "Users registered on Askly."
+    user: "User"
+    email: "Email"
+    type: "Type"
+    actions: "Actions"
+    no_name: "No name"
+    administrator: "Administrator"
+    regular_user: "User"
+    view: "View"
+    edit: "Edit"
+    remove_admin: "Remove admin"
+    make_admin: "Make admin"
+    delete: "Delete"
+    confirm_remove_admin: "Are you sure you want to remove administrator privileges from this user?"
+    confirm_make_admin: "Are you sure you want to make this user an administrator?"
+    confirm_delete: "Are you sure you want to delete this user?"
+    cannot_delete_self: "You cannot delete your own account."
+    deleted: "User deleted successfully."
+    cannot_change_own_permission: "You cannot change your own administrator permission."
+    permission_updated: "Administrator permission updated."
+
+
+  admin_user:
+    details_title: "User details"
+    details_subtitle: "Information about the user registered on Askly."
+    name: "Name"
+    no_name: "No name"
+    email: "Email"
+    account_type: "Account type"
+    administrator: "Administrator"
+    regular_user: "User"
+    registered_at: "Registered at"
+    back: "Back"
+
+  admin_edit_user:
+    title: "Edit user"
+    subtitle: "Change the user's information."
+    first_name: "First name"
+    last_name: "Last name"
+    email: "Email"
+    save: "Save changes"
+    cancel: "Cancel"
+
+  admin_questions:
+    title: "Questions"
+    subtitle: "Manage all questions registered on Askly."
+    question: "Question"
+    category: "Category"
+    created_by: "Created by"
+    actions: "Actions"
+    view: "View"
+    edit: "Edit"
+    delete: "Delete"
+    confirm_delete: "Are you sure you want to delete this question?"
+
+  admin_categories:
+    title: "Categories"
+    subtitle: "Manage the categories used in Askly questions."
+    new_category: "New category"
+    category: "Category"
+    questions: "Questions"
+    actions: "Actions"
+    edit: "Edit"
+    delete: "Delete"
+    confirm_delete: "Are you sure you want to delete this category?"
+    cannot_delete: "A category with questions cannot be deleted."
+    deleted: "Category deleted successfully."
+
+  admin_new_category:
+    title: "New category"
+    subtitle: "Create a new category to organize Askly questions."
+    name: "Category name"
+    placeholder: "Ex: Technology"
+    create: "Create category"
+    cancel: "Cancel"
+
+  admin_edit_category:
+    title: "Edit category"
+    subtitle: "Change the category name."
+    name: "Category name"
+    placeholder: "Ex: Technology"
+    save: "Save changes"
+    cancel: "Cancel"
+
+  devise_passwords_edit:
+    title: "New password"
+    description: "Enter your new password below."
+    new_password: "New password"
+    new_password_placeholder: "Enter your new password"
+    minimum_password_length: "Minimum of %{count} characters."
+    confirm_password: "Confirm new password"
+    confirm_password_placeholder: "Enter your new password again"
+    submit: "Change my password"
+    back_to_login: "Back to login"
+
+  devise_passwords_new:
+    title: "Recover password"
+    description: "Enter your email to receive the instructions."
+    email: "Email"
+    email_placeholder: "your@email.com"
+    submit: "Send instructions"
+    back_to_login: "Back to login"
+    create_account: "Create an account"
+
+  devise_sessions_new:
+    title: "Sign in to Askly"
+    description: "Sign in to your account to continue."
+    email: "Email"
+    email_placeholder: "your@email.com"
+    password: "Password"
+    password_placeholder: "Enter your password"
+    remember_me: "Remember me"
+    submit: "Sign in"
+    forgot_password: "Forgot my password"
+    no_account: "I don't have an account yet"
+
+  devise_registrations_new:
+    title: "Create account"
+    description: "Create your free Askly account."
+    email: "Email"
+    email_placeholder: "your@email.com"
+    password: "Password"
+    password_placeholder: "Create a password"
+    minimum_password_length: "Minimum of %{count} characters."
+    confirm_password: "Confirm password"
+    confirm_password_placeholder: "Enter your password again"
+    submit: "Create my account"
+    already_have_account: "I already have an account"
+
+  application:
+    title: "Questions Answers"

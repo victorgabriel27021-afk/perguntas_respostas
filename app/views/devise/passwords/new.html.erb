@@ -2,49 +2,49 @@
 
   <div class="auth-card">
 
-<div class="auth-header">
-  <h1>Recuperar senha</h1>
-  <p>Digite seu e-mail para receber as instruções.</p>
-</div>
+    <div class="auth-header">
+      <h1><%= t("devise_passwords_new.title") %></h1>
+      <p><%= t("devise_passwords_new.description") %></p>
+    </div>
 
-<% if resource.errors.any? %>
-  <div class="auth-error">
-    <% resource.errors.full_messages.each do |message| %>
-      <p><%= message %></p>
+    <% if resource.errors.any? %>
+      <div class="auth-error">
+        <% resource.errors.full_messages.each do |message| %>
+          <p><%= message %></p>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-<% end %>
 
-<%= form_for(resource,
-             as: resource_name,
-             url: password_path(resource_name),
-             html: { method: :post }) do |f| %>
+    <%= form_for(resource,
+                 as: resource_name,
+                 url: password_path(resource_name),
+                 html: { method: :post }) do |f| %>
 
-  <div class="form-group">
-    <%= f.label :email, "E-mail" %>
+      <div class="form-group">
+        <%= f.label :email, t("devise_passwords_new.email") %>
 
-    <%= f.email_field :email,
-        autofocus: true,
-        autocomplete: "email",
-        placeholder: "seu@email.com" %>
-  </div>
+        <%= f.email_field :email,
+            autofocus: true,
+            autocomplete: "email",
+            placeholder: t("devise_passwords_new.email_placeholder") %>
+      </div>
 
-  <div class="auth-submit">
-    <%= f.submit "Enviar instruções",
-        class: "submit-answer-button" %>
-  </div>
+      <div class="auth-submit">
+        <%= f.submit t("devise_passwords_new.submit"),
+            class: "submit-answer-button" %>
+      </div>
 
-<% end %>
+    <% end %>
 
-<div class="auth-links">
+    <div class="auth-links">
 
-  <%= link_to "Voltar para o login",
-              new_session_path(resource_name) %>
+      <%= link_to t("devise_passwords_new.back_to_login"),
+                  new_session_path(resource_name) %>
 
-  <%= link_to "Criar uma conta",
-              new_registration_path(resource_name) %>
+      <%= link_to t("devise_passwords_new.create_account"),
+                  new_registration_path(resource_name) %>
 
-</div>
+    </div>
 
   </div>
 

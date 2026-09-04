@@ -2,23 +2,23 @@
 
   <div class="admin-dashboard-header">
 
-  <div>
-    <h1>Categorias</h1>
-    <p>Gerencie as categorias utilizadas nas perguntas do Askly.</p>
-  </div>
-
-<%= link_to "Nova categoria",
-new_admin_category_path,
-class: "dashboard-button" %>
-
+<div>
+  <h1><%= t("admin_categories.title") %></h1>
+  <p><%= t("admin_categories.subtitle") %></p>
 </div>
+
+<%= link_to t("admin_categories.new_category"),
+            new_admin_category_path,
+            class: "dashboard-button" %>
+
+  </div>
 
   <div class="admin-users-card">
 
 <div class="admin-users-header">
-  <strong>Categoria</strong>
-  <strong>Perguntas</strong>
-  <strong>Ações</strong>
+  <strong><%= t("admin_categories.category") %></strong>
+  <strong><%= t("admin_categories.questions") %></strong>
+  <strong><%= t("admin_categories.actions") %></strong>
 </div>
 
 <% @categories.each do |category| %>
@@ -36,17 +36,18 @@ class: "dashboard-button" %>
     </div>
 
     <div>
-      <%= link_to "Editar",
-                  "#",
-                  class: "admin-action-button" %>
 
-      <%= link_to "Excluir",
-admin_category_path(category),
-data: {
-turbo_method: :delete,
-turbo_confirm: "Tem certeza que deseja excluir esta categoria?"
-},
-class: "admin-action-button delete-button" %>
+      <%= link_to t("admin_categories.edit"),
+            edit_admin_category_path(category),
+            class: "admin-action-button" %>
+
+      <%= link_to t("admin_categories.delete"),
+                  admin_category_path(category),
+                  data: {
+                    turbo_method: :delete,
+                    turbo_confirm: t("admin_categories.confirm_delete")
+                  },
+                  class: "admin-action-button delete-button" %>
 
     </div>
 

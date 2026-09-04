@@ -2,54 +2,56 @@
 
   <div class="auth-card">
 
-<div class="auth-header">
-  <h1>Entrar no Askly</h1>
-  <p>Entre na sua conta para continuar.</p>
-</div>
-
-<%= form_for(resource,
-             as: resource_name,
-             url: session_path(resource_name)) do |f| %>
-
-  <div class="form-group">
-    <%= f.label :email, "E-mail" %>
-
-    <%= f.email_field :email,
-        autofocus: true,
-        autocomplete: "email",
-        placeholder: "seu@email.com" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password, "Senha" %>
-
-    <%= f.password_field :password,
-        autocomplete: "current-password",
-        placeholder: "Digite sua senha" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="auth-remember">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, "Lembrar de mim" %>
+    <div class="auth-header">
+      <h1><%= t("devise_sessions_new.title") %></h1>
+      <p><%= t("devise_sessions_new.description") %></p>
     </div>
-  <% end %>
 
-  <div class="auth-submit">
-    <%= f.submit "Entrar", class: "submit-answer-button" %>
-  </div>
+    <%= form_for(resource,
+                 as: resource_name,
+                 url: session_path(resource_name)) do |f| %>
 
-<% end %>
+      <div class="form-group">
+        <%= f.label :email, t("devise_sessions_new.email") %>
 
-<div class="auth-links">
+        <%= f.email_field :email,
+            autofocus: true,
+            autocomplete: "email",
+            placeholder: t("devise_sessions_new.email_placeholder") %>
+      </div>
 
-  <%= link_to "Esqueci minha senha",
-              new_password_path(resource_name) %>
+      <div class="form-group">
+        <%= f.label :password, t("devise_sessions_new.password") %>
 
-  <%= link_to "Ainda não tenho uma conta",
-              new_registration_path(resource_name) %>
+        <%= f.password_field :password,
+            autocomplete: "current-password",
+            placeholder: t("devise_sessions_new.password_placeholder") %>
+      </div>
 
-</div>
+      <% if devise_mapping.rememberable? %>
+        <div class="auth-remember">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me,
+              t("devise_sessions_new.remember_me") %>
+        </div>
+      <% end %>
+
+      <div class="auth-submit">
+        <%= f.submit t("devise_sessions_new.submit"),
+            class: "submit-answer-button" %>
+      </div>
+
+    <% end %>
+
+    <div class="auth-links">
+
+      <%= link_to t("devise_sessions_new.forgot_password"),
+                  new_password_path(resource_name) %>
+
+      <%= link_to t("devise_sessions_new.no_account"),
+                  new_registration_path(resource_name) %>
+
+    </div>
 
   </div>
 

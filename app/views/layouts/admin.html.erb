@@ -2,20 +2,22 @@
 
 <html>
   <head>
-    <title>Askly - Administração</title>
+    <title><%= t("admin.title") %></title>
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <%= csrf_meta_tags %>
 <%= csp_meta_tag %>
 
-<%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %><%= javascript_importmap_tags %>
+<%= stylesheet_link_tag "application",
+                        media: "all",
+                        "data-turbo-track": "reload" %>
 
+<%= javascript_importmap_tags %>
 
   </head>
 
   <body>
-
 
 <nav class="navbar">
   <div class="navbar-container">
@@ -26,28 +28,27 @@
 
     <div class="navbar-links">
 
-      <%= link_to "Painel",
+      <%= link_to t("admin.panel"),
                   admin_dashboard_path,
                   class: "navbar-link" %>
 
-      <%= link_to "Usuários",
+      <%= link_to t("admin.users"),
                   admin_users_path,
                   class: "navbar-link" %>
 
-      <%= link_to "Perguntas",
+      <%= link_to t("admin.questions"),
                   admin_questions_path,
                   class: "navbar-link" %>
 
-      <%= link_to "Categorias",
-admin_categories_path,
-class: "navbar-link" %>
+      <%= link_to t("admin.categories"),
+                  admin_categories_path,
+                  class: "navbar-link" %>
 
-
-      <%= link_to "Assinaturas",
+      <%= link_to t("admin.subscriptions"),
                   "#",
                   class: "navbar-link" %>
 
-      <%= link_to "Voltar ao site",
+      <%= link_to t("admin.back_to_site"),
                   root_path,
                   class: "navbar-link" %>
 
@@ -57,7 +58,6 @@ class: "navbar-link" %>
 </nav>
 
 <%= yield %>
-
 
   </body>
 </html>

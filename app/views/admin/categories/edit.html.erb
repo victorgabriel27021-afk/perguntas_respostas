@@ -2,8 +2,8 @@
 
   <div class="admin-dashboard-header">
     <div>
-      <h1>Editar categoria</h1>
-      <p>Altere o nome da categoria.</p>
+      <h1><%= t("admin_edit_category.title") %></h1>
+      <p><%= t("admin_edit_category.subtitle") %></p>
     </div>
   </div>
 
@@ -14,18 +14,18 @@
               method: :patch do |form| %>
 
   <div class="form-group">
-    <%= form.label :name, "Nome da categoria" %>
+    <%= form.label :name, t("admin_edit_category.name") %>
 
     <%= form.text_field :name,
-        placeholder: "Ex: Tecnologia" %>
+        placeholder: t("admin_edit_category.placeholder") %>
   </div>
 
   <div class="question-actions">
 
-    <%= form.submit "Salvar alterações",
-        class: "submit-answer-button" %>
+    <%= form.submit t("admin_edit_category.save"),
+                    class: "submit-answer-button" %>
 
-    <%= link_to "Cancelar",
+    <%= link_to t("admin_edit_category.cancel"),
                 admin_categories_path,
                 class: "action-button" %>
 

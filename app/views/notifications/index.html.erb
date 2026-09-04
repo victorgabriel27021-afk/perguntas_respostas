@@ -1,6 +1,6 @@
 <div class="notifications-page">
 
-  <h1>🔔 Notificações</h1>
+  <h1>🔔 <%= t("notifications.title") %></h1>
 
   <% if @notifications.any? %>
 
@@ -28,7 +28,7 @@
 
   <% else %>
 
-    <p>Você não possui notificações.</p>
+    <p><%= t("notifications.empty") %></p>
 
   <% end %>
 

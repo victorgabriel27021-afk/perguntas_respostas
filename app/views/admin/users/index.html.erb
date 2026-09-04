@@ -1,18 +1,17 @@
 <div class="admin-dashboard-page">
 
   <div class="admin-dashboard-header">
-    <h1>Usuários</h1>
-    <p>Usuários cadastrados no Askly.</p>
+    <h1><%= t("admin_users.title") %></h1>
+    <p><%= t("admin_users.subtitle") %></p>
   </div>
 
   <div class="admin-users-card">
 
-
 <div class="admin-users-header">
-  <strong>Usuário</strong>
-  <strong>E-mail</strong>
-  <strong>Tipo</strong>
-  <strong>Ações</strong>
+  <strong><%= t("admin_users.user") %></strong>
+  <strong><%= t("admin_users.email") %></strong>
+  <strong><%= t("admin_users.type") %></strong>
+  <strong><%= t("admin_users.actions") %></strong>
 </div>
 
 <% @users.each do |user| %>
@@ -20,14 +19,14 @@
   <div class="admin-user-row">
 
     <div>
-  <strong>
-    <%= link_to(
-          "#{user.first_name.presence || 'Sem nome'} #{user.last_name}".strip,
-          admin_user_path(user),
-          class: "admin-user-name"
-        ) %>
-  </strong>
-</div>
+      <strong>
+        <%= link_to(
+              "#{user.first_name.presence || t('admin_users.no_name')} #{user.last_name}".strip,
+              admin_user_path(user),
+              class: "admin-user-name"
+            ) %>
+      </strong>
+    </div>
 
     <div>
       <%= user.email %>
@@ -36,48 +35,50 @@
     <div>
       <% if user.admin? %>
         <span class="admin-badge">
-          Administrador
+          <%= t("admin_users.administrator") %>
         </span>
       <% else %>
         <span class="user-badge">
-          Usuário
+          <%= t("admin_users.regular_user") %>
         </span>
       <% end %>
     </div>
 
     <div>
 
-<%= link_to "Ver",
-admin_user_path(user),
-class: "admin-action-button" %>
+      <%= link_to t("admin_users.view"),
+                  admin_user_path(user),
+                  class: "admin-action-button" %>
 
-<%= link_to "Editar",
-edit_admin_user_path(user),
-class: "admin-action-button" %>
+      <%= link_to t("admin_users.edit"),
+                  edit_admin_user_path(user),
+                  class: "admin-action-button" %>
 
-<%= link_to user.admin? ? "Remover admin" : "Tornar admin",
-admin_toggle_admin_user_path(user),
-data: {
-turbo_method: :patch,
-turbo_confirm: user.admin? ?
-"Tem certeza que deseja remover o administrador deste usuário?" :
-"Tem certeza que deseja tornar este usuário administrador?"
-},
-class: "admin-action-button" %>
+      <%= link_to user.admin? ?
+                    t("admin_users.remove_admin") :
+                    t("admin_users.make_admin"),
+                  admin_toggle_admin_user_path(user),
+                  data: {
+                    turbo_method: :patch,
+                    turbo_confirm: user.admin? ?
+                      t("admin_users.confirm_remove_admin") :
+                      t("admin_users.confirm_make_admin")
+                  },
+                  class: "admin-action-button" %>
 
+      <% unless user == current_user %>
 
-<% unless user == current_user %>
-<%= link_to "Excluir",
-admin_user_path(user),
-data: {
-turbo_method: :delete,
-turbo_confirm: "Tem certeza que deseja excluir este usuário?"
-},
-class: "admin-action-button delete-button" %>
-<% end %>
+        <%= link_to t("admin_users.delete"),
+                    admin_user_path(user),
+                    data: {
+                      turbo_method: :delete,
+                      turbo_confirm: t("admin_users.confirm_delete")
+                    },
+                    class: "admin-action-button delete-button" %>
 
-</div>
+      <% end %>
 
+    </div>
 
   </div>
 

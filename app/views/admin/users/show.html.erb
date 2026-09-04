@@ -2,8 +2,8 @@
 
   <div class="admin-dashboard-header">
     <div>
-      <h1>Detalhes do usuário</h1>
-      <p>Informações do usuário cadastrado no Askly.</p>
+      <h1><%= t("admin_user.details_title") %></h1>
+      <p><%= t("admin_user.details_subtitle") %></p>
     </div>
   </div>
 
@@ -12,31 +12,35 @@
 <div class="admin-user-details">
 
   <div>
-    <strong>Nome</strong>
+    <strong><%= t("admin_user.name") %></strong>
     <p>
-      <%= @user.first_name.presence || "Sem nome" %>
+      <%= @user.first_name.presence || t("admin_user.no_name") %>
       <%= @user.last_name %>
     </p>
   </div>
 
   <div>
-    <strong>E-mail</strong>
+    <strong><%= t("admin_user.email") %></strong>
     <p><%= @user.email %></p>
   </div>
 
   <div>
-    <strong>Tipo de conta</strong>
+    <strong><%= t("admin_user.account_type") %></strong>
     <p>
       <% if @user.admin? %>
-        <span class="admin-badge">Administrador</span>
+        <span class="admin-badge">
+          <%= t("admin_user.administrator") %>
+        </span>
       <% else %>
-        <span class="user-badge">Usuário</span>
+        <span class="user-badge">
+          <%= t("admin_user.regular_user") %>
+        </span>
       <% end %>
     </p>
   </div>
 
   <div>
-    <strong>Cadastrado em</strong>
+    <strong><%= t("admin_user.registered_at") %></strong>
     <p><%= @user.created_at.strftime("%d/%m/%Y às %H:%M") %></p>
   </div>
 
@@ -44,7 +48,7 @@
 
 <div class="question-actions">
 
-  <%= link_to "Voltar",
+  <%= link_to t("admin_user.back"),
               admin_users_path,
               class: "action-button" %>
 

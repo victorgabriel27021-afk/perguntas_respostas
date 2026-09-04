@@ -2,8 +2,8 @@
 
   <div class="admin-dashboard-header">
     <div>
-      <h1>Editar usuário</h1>
-      <p>Altere as informações do usuário.</p>
+      <h1><%= t("admin_edit_user.title") %></h1>
+      <p><%= t("admin_edit_user.subtitle") %></p>
     </div>
   </div>
 
@@ -14,26 +14,26 @@
               method: :patch do |form| %>
 
   <div class="form-group">
-    <%= form.label :first_name, "Nome" %>
+    <%= form.label :first_name, t("admin_edit_user.first_name") %>
     <%= form.text_field :first_name %>
   </div>
 
   <div class="form-group">
-    <%= form.label :last_name, "Sobrenome" %>
+    <%= form.label :last_name, t("admin_edit_user.last_name") %>
     <%= form.text_field :last_name %>
   </div>
 
   <div class="form-group">
-    <%= form.label :email, "E-mail" %>
+    <%= form.label :email, t("admin_edit_user.email") %>
     <%= form.email_field :email %>
   </div>
 
   <div class="question-actions">
 
-    <%= form.submit "Salvar alterações",
-        class: "submit-answer-button" %>
+    <%= form.submit t("admin_edit_user.save"),
+                    class: "submit-answer-button" %>
 
-    <%= link_to "Cancelar",
+    <%= link_to t("admin_edit_user.cancel"),
                 admin_users_path,
                 class: "action-button" %>
 

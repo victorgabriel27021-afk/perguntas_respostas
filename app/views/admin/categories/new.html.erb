@@ -1,8 +1,8 @@
 <div class="admin-dashboard-page">
 
   <div class="admin-dashboard-header">
-    <h1> Nova categoria</h1>
-    <p>Crie uma nova categoria para organizar as perguntas do Askly.</p>
+    <h1><%= t("admin_new_category.title") %></h1>
+    <p><%= t("admin_new_category.subtitle") %></p>
   </div>
 
   <div class="admin-users-card">
@@ -12,18 +12,18 @@
               method: :post do |form| %>
 
   <div class="form-group">
-    <%= form.label :name, "Nome da categoria" %>
+    <%= form.label :name, t("admin_new_category.name") %>
 
     <%= form.text_field :name,
-        placeholder: "Ex: Tecnologia" %>
+        placeholder: t("admin_new_category.placeholder") %>
   </div>
 
   <div class="question-actions">
 
-    <%= form.submit "Criar categoria",
-        class: "submit-answer-button" %>
+    <%= form.submit t("admin_new_category.create"),
+                    class: "submit-answer-button" %>
 
-    <%= link_to "Cancelar",
+    <%= link_to t("admin_new_category.cancel"),
                 admin_categories_path,
                 class: "action-button" %>
 

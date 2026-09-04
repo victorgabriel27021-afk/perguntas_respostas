@@ -86,6 +86,12 @@ pt-BR:
     edit: "Editar perfil" 
     back_dashboard: "Voltar ao dashboard"
 
+  notifications:
+    title: "Notificações"
+    empty: "Você não possui notificações."
+    answered_question: "%{user} respondeu sua pergunta."
+
+
   edit_profile:
     title: "Meu perfil"
     description: "Atualize seus dados pessoais."
@@ -100,3 +106,176 @@ pt-BR:
     back: "Voltar"
     choose_file: "Escolher arquivo"
     no_file: "Nenhum arquivo selecionado"
+
+  sidebar:
+    questions: "Perguntas"
+    dashboard: "Dashboard"
+    profile: "Meu perfil"
+    reputation: "Minha reputação"
+    my_questions: "Minhas perguntas"
+    my_answers: "Minhas respostas"
+    ranking: "Ranking"
+    settings: "Configurações"
+    logout: "Sair"
+
+  navbar:
+    search_placeholder: "Pesquisar perguntas..."
+    admin_panel: "Painel Admin"
+    logout: "Sair"
+    login: "Entrar"
+    register: "Cadastrar"
+
+  ranking:
+    title: "Ranking de usuários"
+    points: "pontos"
+
+  admin:
+    title: "Askly - Administração"
+    panel: "Painel"
+    users: "Usuários"
+    questions: "Perguntas"
+    categories: "Categorias"
+    subscriptions: "Assinaturas"
+    back_to_site: "Voltar ao site"
+
+  admin_dashboard:
+    title: "Painel Administrativo"
+    subtitle: "Gerencie e acompanhe o Askly."
+    users_count: "Usuários cadastrados"
+    questions_count: "Perguntas cadastradas"
+    answers_count: "Respostas cadastradas"
+    categories: "Categorias"
+
+  admin_users:
+    title: "Usuários"
+    subtitle: "Usuários cadastrados no Askly."
+    user: "Usuário"
+    email: "E-mail"
+    type: "Tipo"
+    actions: "Ações"
+    no_name: "Sem nome"
+    administrator: "Administrador"
+    regular_user: "Usuário"
+    view: "Ver"
+    edit: "Editar"
+    remove_admin: "Remover admin"
+    make_admin: "Tornar admin"
+    delete: "Excluir"
+    confirm_remove_admin: "Tem certeza que deseja remover o administrador deste usuário?"
+    confirm_make_admin: "Tem certeza que deseja tornar este usuário administrador?"
+    confirm_delete: "Tem certeza que deseja excluir este usuário?"
+    cannot_delete_self: "Você não pode excluir sua própria conta."
+    deleted: "Usuário excluído com sucesso."
+    cannot_change_own_permission: "Você não pode alterar sua própria permissão de administrador."
+    permission_updated: "Permissão de administrador atualizada."
+
+
+  admin_user:
+    details_title: "Detalhes do usuário"
+    details_subtitle: "Informações do usuário cadastrado no Askly."
+    name: "Nome"
+    no_name: "Sem nome"
+    email: "E-mail"
+    account_type: "Tipo de conta"
+    administrator: "Administrador"
+    regular_user: "Usuário"
+    registered_at: "Cadastrado em"
+    back: "Voltar"
+
+  admin_edit_user:
+    title: "Editar usuário"
+    subtitle: "Altere as informações do usuário."
+    first_name: "Nome"
+    last_name: "Sobrenome"
+    email: "E-mail"
+    save: "Salvar alterações"
+    cancel: "Cancelar"
+
+  admin_questions:
+    title: "Perguntas"
+    subtitle: "Gerencie todas as perguntas cadastradas no Askly."
+    question: "Pergunta"
+    category: "Categoria"
+    created_by: "Criada por"
+    actions: "Ações"
+    view: "Ver"
+    edit: "Editar"
+    delete: "Excluir"
+    confirm_delete: "Tem certeza que deseja excluir esta pergunta?"
+
+  admin_categories:
+    title: "Categorias"
+    subtitle: "Gerencie as categorias utilizadas nas perguntas do Askly."
+    new_category: "Nova categoria"
+    category: "Categoria"
+    questions: "Perguntas"
+    actions: "Ações"
+    edit: "Editar"
+    delete: "Excluir"
+    confirm_delete: "Tem certeza que deseja excluir esta categoria?"
+    cannot_delete: "Não é possível excluir uma categoria que possui perguntas."
+    deleted: "Categoria excluída com sucesso."
+
+  admin_new_category:
+    title: "Nova categoria"
+    subtitle: "Crie uma nova categoria para organizar as perguntas do Askly."
+    name: "Nome da categoria"
+    placeholder: "Ex: Tecnologia"
+    create: "Criar categoria"
+    cancel: "Cancelar"
+
+  admin_edit_category:
+    title: "Editar categoria"
+    subtitle: "Altere o nome da categoria."
+    name: "Nome da categoria"
+    placeholder: "Ex: Tecnologia"
+    save: "Salvar alterações"
+    cancel: "Cancelar"
+
+  devise_passwords_edit:
+    title: "Nova senha"
+    description: "Digite sua nova senha abaixo."
+    new_password: "Nova senha"
+    new_password_placeholder: "Digite sua nova senha"
+    minimum_password_length: "Mínimo de %{count} caracteres."
+    confirm_password: "Confirmar nova senha"
+    confirm_password_placeholder: "Digite novamente sua nova senha"
+    submit: "Alterar minha senha"
+    back_to_login: "Voltar para o login"
+
+  devise_passwords_new:
+    title: "Recuperar senha"
+    description: "Digite seu e-mail para receber as instruções."
+    email: "E-mail"
+    email_placeholder: "seu@email.com"
+    submit: "Enviar instruções"
+    back_to_login: "Voltar para o login"
+    create_account: "Criar uma conta"
+
+  devise_sessions_new:
+    title: "Entrar no Askly"
+    description: "Entre na sua conta para continuar."
+    email: "E-mail"
+    email_placeholder: "seu@email.com"
+    password: "Senha"
+    password_placeholder: "Digite sua senha"
+    remember_me: "Lembrar de mim"
+    submit: "Entrar"
+    forgot_password: "Esqueci minha senha"
+    no_account: "Ainda não tenho uma conta"
+
+  devise_registrations_new:
+    title: "Criar conta"
+    description: "Crie sua conta gratuitamente no Askly."
+    email: "E-mail"
+    email_placeholder: "seu@email.com"
+    password: "Senha"
+    password_placeholder: "Crie uma senha"
+    minimum_password_length: "Mínimo de %{count} caracteres."
+    confirm_password: "Confirmar senha"
+    confirm_password_placeholder: "Digite a senha novamente"
+    submit: "Criar minha conta"
+    already_have_account: "Já tenho uma conta"
+  
+  application:
+    title: "Perguntas Respostas"

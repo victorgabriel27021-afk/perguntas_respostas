@@ -2,67 +2,69 @@
 
   <div class="auth-card">
 
-<div class="auth-header">
-  <h1>Criar conta</h1>
-  <p>Crie sua conta gratuitamente no Askly.</p>
-</div>
-
-<%= form_for(resource,
-             as: resource_name,
-             url: registration_path(resource_name)) do |f| %>
-
-  <% if resource.errors.any? %>
-    <div class="auth-error">
-      <% resource.errors.full_messages.each do |message| %>
-        <p><%= message %></p>
-      <% end %>
+    <div class="auth-header">
+      <h1><%= t("devise_registrations_new.title") %></h1>
+      <p><%= t("devise_registrations_new.description") %></p>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :email, "E-mail" %>
+    <%= form_for(resource,
+                 as: resource_name,
+                 url: registration_path(resource_name)) do |f| %>
 
-    <%= f.email_field :email,
-        autofocus: true,
-        autocomplete: "email",
-        placeholder: "seu@email.com" %>
-  </div>
+      <% if resource.errors.any? %>
+        <div class="auth-error">
+          <% resource.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+          <% end %>
+        </div>
+      <% end %>
 
-  <div class="form-group">
-    <%= f.label :password, "Senha" %>
+      <div class="form-group">
+        <%= f.label :email, t("devise_registrations_new.email") %>
 
-    <%= f.password_field :password,
-        autocomplete: "new-password",
-        placeholder: "Crie uma senha" %>
+        <%= f.email_field :email,
+            autofocus: true,
+            autocomplete: "email",
+            placeholder: t("devise_registrations_new.email_placeholder") %>
+      </div>
 
-    <% if @minimum_password_length %>
-      <small>
-        Mínimo de <%= @minimum_password_length %> caracteres.
-      </small>
+      <div class="form-group">
+        <%= f.label :password, t("devise_registrations_new.password") %>
+
+        <%= f.password_field :password,
+            autocomplete: "new-password",
+            placeholder: t("devise_registrations_new.password_placeholder") %>
+
+        <% if @minimum_password_length %>
+          <small>
+            <%= t("devise_registrations_new.minimum_password_length",
+                  count: @minimum_password_length) %>
+          </small>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation,
+            t("devise_registrations_new.confirm_password") %>
+
+        <%= f.password_field :password_confirmation,
+            autocomplete: "new-password",
+            placeholder: t("devise_registrations_new.confirm_password_placeholder") %>
+      </div>
+
+      <div class="auth-submit">
+        <%= f.submit t("devise_registrations_new.submit"),
+            class: "submit-answer-button" %>
+      </div>
+
     <% end %>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation, "Confirmar senha" %>
+    <div class="auth-links">
 
-    <%= f.password_field :password_confirmation,
-        autocomplete: "new-password",
-        placeholder: "Digite a senha novamente" %>
-  </div>
+      <%= link_to t("devise_registrations_new.already_have_account"),
+                  new_session_path(resource_name) %>
 
-  <div class="auth-submit">
-    <%= f.submit "Criar minha conta",
-        class: "submit-answer-button" %>
-  </div>
-
-<% end %>
-
-<div class="auth-links">
-
-  <%= link_to "Já tenho uma conta",
-              new_session_path(resource_name) %>
-
-</div>
+    </div>
 
   </div>
 
